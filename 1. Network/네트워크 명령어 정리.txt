@@ -1,0 +1,121 @@
+명령어 정리
+en
+config t
+hostname
+interface fastethernet
+ip address
+clock rate
+no shutdown
+
+config t
+int vlan 1
+ip address
+no shutdown
+
+config t
+interface fastethernet 0/0
+ip address dhcp
+
+config t
+interface GigabitEthernet0/0
+ip address dhcp
+
+
+banner motd
+
+history size 
+terminal history size
+
+ip host DNS IP address
+no ip domain-lookup
+
+보안설정
+enable password 
+enable secret
+line console 0
+password
+login
+
+service password-encryption
+enable password
+line console 0
+password
+login
+
+
+line vty 0 4
+password
+login
+
+username jjcom password 
+line console 0
+login local
+
+
+copy running-config tftp
+show flash
+
+
+#라우터 설정
+interface fa0/0.10
+encapsulation dot1Q 10
+
+
+#dhcp설정
+ip dhcp pool Outside
+network 172.16.0.0
+default-router 172.16.0.254
+dns-server 8.8.8.8
+ip dhcp excluded-address 172.16.0.254
+
+
+ip dhcp pool jjcom
+network 192.168.2.0 255.255.255.0
+default-router 192.168.2.254
+dns-server 8.8.8.8
+exit
+ip dhcp excluded-address 192.168.2.254
+
+
+config t
+interface GigaEthernet0/0
+ip address dhcp
+
+
+# 방화벽
+config t
+interface vlan 2
+ip address dhcp setroute
+
+config t
+interface vlan 2
+ip address 172.16.0.253 255.255.255.0
+no shutdown
+
+#방화벽 추가 설정분(내부 라우터가 없을 경우)
+config t
+route outside 0.0.0.0 0.0.0.0 172.16.0.254
+access-list outside_in extended permit icmp any any 
+access-list outside_in extended permit ip any any 
+access-list outside_in extended permit tcp any any 
+access-list outside_in extended permit udp any any 
+access-group outside_in in interface outside
+object network internal_lan_outside
+subnet 192.168.1.0 255.255.255.0
+nat (inside,outside) dynamic interface
+exit
+
+내부 라우터가 있을 경우
+config t
+route outside 0.0.0.0 0.0.0.0 172.16.0.254
+route inside 192.168.2.0 255.255.255.0 192.168.1.1
+access-list outside_in extended permit icmp any any 
+access-list outside_in extended permit ip any any 
+access-list outside_in extended permit tcp any any 
+access-list outside_in extended permit udp any any 
+access-group outside_in in interface outside
+object network internal_lan_outside
+subnet 192.168.1.0 255.255.255.0
+nat (inside,outside) dynamic interface
+exit
+

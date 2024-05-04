@@ -1,0 +1,13 @@
+포렌식툴정리
+
+1.포렌식툴
+-포렌식 툴에서는 AccessData FTK Imager, Autopsy, EnCase, Forensic Explorer등등이 있다.
+-내가 써본느낌상 Forensic Explorer = Encase > Autopsy > FTK Imager인거같다.
+-이미징 하드웨어에는 DIBS RAID, SuperImager, Falcon등이 있고 이미징 소프트웨어에는 SafeBack, FTK, Encase가 있다.
+
+
+2.분석기법
+-최근파일분석, 해쉬분석, 시그니처분석, 키워드분석, 이메일 파싱, 관심파일분석, 안드로이드 분석등이 있다.
+-최근파일분석은 사용된 파일중에 최근에 사용된 파일을 모으는 것이다.
+-해쉬분석은 파일의 해쉬를 분석해서 파일의 변조 유무를 검사하는 것이다.
+-

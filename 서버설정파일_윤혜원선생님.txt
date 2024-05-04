@@ -1,0 +1,535 @@
+< 2016년 2학기 최종 작성 : 윤혜원 선생님 최종설정파일>
+< 2017년 최근수정 : 임창현 최종설정파일>
+[postfix]
+#1
+yum -y install postfix
+#2
+vi /etc/postfix/main.cf
+# line 75 : 주석제거와 호스트네임 설정
+myhostname = mail3.jjcom.kr
+# line 83 : 주석제거와 도메인네임 설정 (가상서버에서 돌고있는 도메인쓰기)
+mydomian = jjcom.kr
+# line 99 : 주석제거
+myorigin = $mydomain
+# line 116 : 바꾸기
+inet_interfaces = all
+# line 164 : 추가하기
+mydestination = $myhostname, localhost, $mydomian, localhost, $mydomian
+# line 264 : 주석제거와 네트워크 대역 추가
+mynetworks = 127.0.0.0/8, 192.168.0.0/24
+  -> 네트워크 대역대를 써주기 자신의 IP쓰면 안됨!!
+# line 419 : 주석제거
+host_mailbox = Maildir/
+# line 574 : 추가
+smtpd_banner = $myhostname ESMTP
+
+# 파일하단에 추가
+message_size_limit = 10485760
+mailbox_size_limit = 1073741824
+stmpd_sasl_type = dovecot
+stmpd_sasl_path = private/auth
+stmpd_sasl_auth_enable = yes
+stmpd_sasl_security_options = noanonymous
+stmpd_sasl_local_domain = $myhostname
+stmpd_recipient_restrictions = permit_mynetworks,permit_auth_destination,permit_sasl_authenticated,reject
+
+#3
+systemctl restart postfix
+systemctl enable postfix
+
+[dovecot]
+
+#1
+yum ?y install dovecot
+
+#2
+vi /etc/dovecot/dovecot.conf
+
+# line 24 : 주석제거
+protocols = imap pop3 Imtp
+# line 30 : 주석제거와 바꾸기
+listen = *
+
+#3
+vi /etc/dovecot/conf.d/10-auth.conf
+
+# line 10 : 주석제거와 바꾸기
+disable_plaintext_auth = no
+# line 100 : 추가
+auth_mechanisms = plain login
+
+#4
+vi /etc/dovecot/conf.d/10-mail.conf
+
+# line 30 : 주석제거와 추가
+mail_location = maildir:~/Maildir
+
+#5
+vi /etc/dovecot/conf.d/10-master.conf
+
+#line 96-98 : 주석제거와 추가
+#Postfix smtp-auth
+unix_listener /var/spool/postfix/private/auth {
+    mode = 0666
+    user = postfix
+    group = postfix
+}
+
+# 6
+systemctl start dovecot
+systemctl enable dovecot
+
+
+[DNS]
+
+#1
+yum ?y install bind bind-utils
+
+#2
+vi /etc/named.conf
+
+# line 11 : 바꾸기
+ { any; };
+# line 12 : 바꾸기
+ { any; };
+
+#3
+vi /etc/named.rfc1912.zones : 추가
+
+zone "hyewon.com" IN {
+        type master;
+        file "hyewon.com.zone";
+        allow-update { none; };
+};
+
+#4
+cd /var/named
+
+#5
+cp -rfp named.localhost hyewon.com.zone
+
+#6
+vi /var/named/hyewon.com.zone : 추가
+$TTL 1D
+@       IN SOA  ns.hyewon.com. root (
+                                        0       ; serial
+                                        1D      ; refresh
+                                        1H      ; retry
+                                        1W      ; expire
+                                        3H )    ; minimum
+        IN NS   ns.hyewon.com.
+        IN A    192.168.0.101
+ns      IN A    192.168.0.101
+www     IN A    192.168.0.101
+
+#7
+systemctl start named
+systemctl enable named
+
+#8
+vi /etc/resolv.conf
+nameserver 192.168.0.101
+#9
+ping hyewon.com
+
+
+
+[NFS server]
+
+#1
+yum ?y install nfs-utils
+
+#2
+vi /etc/idmapd.conf
+
+#3
+# line 5 : 주석제거와 도메인네임 바꾸기
+Domain = test.com
+
+#4
+vi /etc/exports
+
+#5
+# NFS exports 설정
+/home 서버 IP(rw,no_root_squash)
+  -> 접근하는 IP 와 디렉토리 등록, (r : 읽기 허가, w : 쓰기 허가)
+
+#6
+systemctl start rpcbind nfs-server
+systemctl enable rpcbind nfs-server
+
+
+
+[NFS client]
+
+#1
+yum ?y install nfs-utils
+
+#2
+vi /etc/idmapd.conf
+
+#3
+# line 5 : 주석제거와 도메인네임 바꾸기
+Domain = test.com
+
+#4
+# 서비스 돌리기
+systemctl start rpcbind
+systemctl enable rpcbind
+
+#5
+mount ?t nfs 192.168.0.196:/home /home
+  -> 서버IP와 서버에서 설정한 디렉토리로 써주기
+
+
+
+[web 소스설치]
+
+#1
+yum ?y intall lrzsz
+
+#2
+yum ?y install bzip2
+
+#3
+yum ?y install gcc gcc-c++
+
+#4
+tar xfj pcre(tab키) - 압축풀기
+cd pcre(tab키)
+tar xfj pcre*
+cd pcre*
+./configure; make ;make install
+
+#5
+cd /root
+tar xfj httpd(tab키)
+tar xfj apr-1(tab키)
+tar xfj apr-util(tab키)
+
+# 압축을 푼 파일 옮기기
+
+#6
+mv apr-1.5.1 httpd-2.4.10/srclib/apr
+mv apr-util-1.5.4 httpd-2.4.10/srclib/apr-util
+cd httpd(tab키)
+
+#7
+./configure \
+--with-included-apr \
+--with-pcre=/usr/local/bin/pcre-config \
+--prefix=/web/httpd2 \
+; make; make install
+
+#8
+vi /etc/ld.so.conf
+# 추가
+/web/httpd2/lib
+/web/httpd2/modules
+
+#9
+ldconfig
+
+#10
+# 복사
+cp /web/httpd2/bin/apachectl /etc/init.d/httpd2
+
+#11
+vi /etc/init.d/httpd2
+# 추가
+
+# chkconfig: - 85 15
+# description: Apache Server
+
+#12
+chkconfig httpd2 on
+systemctl restart httpd2
+systemctl enable httpd2
+systemctl status httpd2
+
+#13
+cd /root
+tar xfz mariadb(tab키)
+mv mariadb(tab키) /web/mariadb
+
+#14
+# 그룹추가
+groupadd mysql
+adduser -M -d /web/mariadb -g mysql -s /bin/false -r mysql
+
+#15
+cd /web/mariadb
+/web/mariadb/scripts/mysql_install_db \
+--user=mysql \
+--basedir=/web/mariadb \
+--datadir=/web/mariadb/data
+
+#16
+# 파일 복사
+cp -a /web/mariadb/support-files/my-huge.cnf /etc/my.cnf
+
+#17
+# 추가
+
+vi /etc/my.cnf
+[mysqld]부분
+basedir = /web/mariadb
+datadir = /web/mariadb/data
+
+#18
+# 추가
+cp -a /web/mariadb/support-files/mysql.server /etc/init.d/mariadb
+systemctl start mariadb
+chkconfig mariadb on
+
+/web/mariadb/bin/mysqladmin -u root ?p password
+
+#19
+# 경로설정
+PATH=$PATH:/web/mariadb/bin
+
+#20
+yum -y install libxml2-devel openssl-devel libjpeg-devel libpng-devel
+
+#21
+cd /root
+tar xfj php(tab키)
+cd php(tab키)
+
+#22
+./configure \
+--with-mysql=/web/mariadb \
+--with-apxs2=/web/httpd2/bin/apxs \
+--with-mysqli=/web/mariadb/bin/mysql_config \
+--with-imap-ssl \
+--disable-debug \
+--with-gd \
+--with-jpeg-dir \
+--with-png-dir \
+--with-libxml-dir \
+--with-openssl; make; make install
+
+※ perl,apx 오류일 경우 vi /web/httpd2/bin/apxs 경로로 들어가서 
+첫번째줄 #!/usr/bin/perl -\ 변경
+
+#23
+ls ?l /web/httpd2/modules/libphp5.so
+
+#24
+vi /web/httpd2/conf/httpd.conf
+# line 147  : 확인
+LoadModule php5_module modules/libphp5.so
+# line 376 : 추가
+AddType application/x-httpd-php .php .php3 .php4 .php5 .htm .html .inc
+
+#25
+# 복사
+cp php.ini-production /etc/php.ini
+
+#26
+systemctl stop httpd2
+systemctl start httpd2
+systemctl status httpd2
+
+#27
+vi /web/httpd2/htdocs/phpinfo.php
+
+<?php
+  phpinfo();
+?>
+
+
+[하드디스크]
+
+#1
+ls ?l /dev/sd*
+
+#2
+fdisk /dev/sdb
+
+#3
+yum ?y install mdamd 
+
+#4
+mdadm --create /dev/md0 --level=0 --raid-devices=2 /dev/sdb1 /dev/sdc1
+
+
+#5
+mdadm ?detail ?scan
+
+#6
+mkfs.ext4 /dev/md0
+
+#7
+mkdir /raid0
+
+
+#8
+mount /dev/md0 /raid0
+
+#9
+df ?h
+
+#10
+vi /etc/fstab
+
+#
+/dev/md0   /raid0   ext4    defaults    1 2 
+
+
+
+[SAMBA]
+
+#1
+yum ?y install samba samba-client
+
+#2
+mkdir /home/share
+chmod 777 /home/share
+
+#3
+vi /etc/samba/smb.conf
+
+# line 66 : 추가
+unix charset = UTF-8
+dos charset = CP932
+# line 90 : 바꾸기
+workgroup = WORKGROUP
+# line 96 : 주석제거와 IP 바꾸기
+hosts allow = 127. 192.168.0.
+# line 126 : 추가
+map to quest = Bad User
+# 마지막에 추가
+[Share] # any name you like
+    path = /home/share # shared directory
+    writable = yes # writable
+    guest ok = yes # guest allowed
+    guest only = yes # guest only
+    create mode = 0777 # fully accessed file
+    directory mode = 0777 # fully accessed directory
+
+
+#4
+systemctl start smb nmb
+systemctl enable smb
+systemctl enable nmb
+
+[스크립트 백업]
+
+
+#1
+vi /etc/crontab
+
+#2
+23 17 14 * * root run-parts /etc/cron.monthly
+
+#3
+cd /etc/cron.monthly
+
+#4
+vi myBackup.sh
+
+
+#!/bin/sh
+set $(date)
+fname="backup-$2$3.tar.bz2"
+logs=""
+tar cfj /backup/$fname /web/httpd2/htdocs
+tar cfj /backup/$fname /var/log
+
+#5
+mkdir /backup
+
+#6
+yum ?y install rdate
+
+#7
+rdate ?s time time.bora.net (시간을 변경)
+
+#8
+date 120717222016
+
+#9
+service crond restart
+systemctl restart crond
+
+
+[pxe]
+
+#1
+yum -y install syslinux
+yum -y install dhcp
+yum -y install tftp-server
+yum -y install vsftpd
+
+#2
+vi /etc/dhcp/dhcpd.conf
+
+#3
+# 추가
+
+vi /etc/dhcp/dhcpd.conf
+subnet 192.168.0.0 netmask 255.255.255.0 {
+  option routers  192.168.0.1;
+  option subnet-mask  255.255.255.0
+  range dynamic-bootp 192.168.0.201 192.168.0.254;
+  option domain-name-servers 168.126.63.1
+  allow booting;
+  allow bootp;
+  next-server 192.168.0.X;
+  filename "pexlinux.0"
+}
+
+#4
+vi /etc/xinetd.d/tftpd
+# 바꾸기 
+disabled = no
+
+
+[DHCP]
+
+#1
+yum ?y install dhcp
+
+#2
+vi /etc/dh cp/dhcpd.conf
+
+# 추가
+
+option domain-name  “hyewon.com”;
+option domain-name-server 192.168.0.101;
+default-lease-time 60;
+max-lease-time 7200;
+authoritative;
+
+subnet 192.168.0.0 netmask 255.255.255.0 {
+  range dynamic-bootup 192.168.0.101 192.168.0.254;
+  option broadcast-address 192.168.0.255;
+  option router 192.168.0.1;
+}
+
+#3
+systemctl start dhcpd
+systemctl enable dhcpd
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
