@@ -162,15 +162,3 @@ DHCP
  dns-server 8.8.8.8
  ip dhcp excluded-address 172.16.0.254
          (불포함 아이피 주소)
-
-8. telnet, ssh
- - telnet은 라우터, 방화벽, 다른 기기등의 prompt에 연결할수 있는 기능이다.
- - ssh는 telnet의 상위버전이다. (한마디로 정보가 교환할때 암호화를 한다는것이다.)
- - secure shell
-
- - 하지만 둘다 userid와 password만 있으면 연결 가능하기 때문에
- 보안에 허점이 생길 수 있다는 것이다.
- (brute force와 같이 모든 수를 대입하면 뚫리기 때문)
-
-
-
