@@ -1,83 +1,75 @@
 서버 정리
 
-1. 서버
--서버는 그냥 컴퓨터랑 똑같다
--다만 윈도우 2000 or 2008이냐 리눅스냐 그차이다
--ip,subnet,gateway,dns가 있다
-
+서버 설치 사이트
+https://www.server-world.info/
 
 1. 서버종류
--HTTP         
--DHCP
--DHCP_V6
--TFTP
--DNS
--SYSLOG
--AAA
--NTP
--EMAIL
--FTP
--IOE
-+Domain active directory
+ - HTTP         
+ - DHCP
+ - DHCP_V6
+ - TFTP
+ - DNS
+ - SYSLOG
+ - AAA
+ - NTP
+ - EMAIL
+ - FTP
+ - IOE
+ +Domain active directory
 
 
 2. 서버설명
 
-HTTP란
--HyperText Trensfer Protocol - port:80 or 8080
--그냥 인터넷할때 쓰이는 프로토콜
+HTTP
+ - HyperText Trensfer Protocol - port:80 or 8080
+ - 그냥 인터넷할때 쓰이는 프로토콜
+
 
 DHCP
--Dynamic Host Configuration Protocol - port:67 or 68
--컴퓨터 4대 요소를 자동구성해줌
+ - Dynamic Host Configuration Protocol - port:67 or 68
+ - 컴퓨터 4대 요소를 자동구성해줌
 
-TFTP란
--Trivial File Transfer Protocol - port:69
--ftp와 마찬가지로 파일전송 목적을 갖고 있지만 ftp보단 단순한
- 방식으로 파일을 전송한다
 
-DNS란
--Domain Name System - port:53
--도메인를 아이피주소(정방향), 아이피주소를 도메인(역방향)으로 전환해준다
--nslookup, dnsenum
+TFTP
+ - Trivial File Transfer Protocol - port:69
+ - ftp와 마찬가지로 파일전송 목적을 갖고 있지만 ftp보단 단순한 방식으로 파일을 전송한다
 
-SYSLOG란
--SYStem LOG
--그 말대로 시스템의 로그정보를 수집하는 서비스중 하나다.
 
-AAA란
--Authentication, Authorization and accounting
--인증서비스이다.
--이것은 클라이언트 아이피,이름,비밀번호를 받아놔서 나중에 인증할때 쓴다.
--종류는 radius,Tacacs가 있으며 나중에 AP의 WPA enterprise에서도 인증서버를 사용여부를 
+DNS
+ - Domain Name System - port:53
+ - 도메인를 아이피주소(정방향), 아이피주소를 도메인(역방향)으로 전환해준다
+ - nslookup, dnsenum
+
+
+SYSLOG
+ - SYStem LOG
+ - 그 말대로 시스템의 로그정보를 수집하는 서비스중 하나다.
+
+
+AAA
+ - Authentication, Authorization and accounting
+ - 인증서비스이다.
+ - 이것은 클라이언트 아이피,이름,비밀번호를 받아놔서 나중에 인증할때 쓴다.
+ - 종류는 radius,Tacacs가 있으며 나중에 AP의 WPA enterprise에서도 인증서버를 사용여부를 
  설정할 수 있다.
 
-NTP란
--Network Time Protocol - port:37 or 123
--이것은 37번과 123번의 차이가 있는데 
--udp 37은 xinetd에서 운영할 수 있는 time server이고
- udp 123은 ntp데몬으로 운영되는 network time protocol이다.
--하지만 37은 단순히 서버의 시간을 맞추고
- 123은 다른서버와 비교하기 때문에 정확성이 크다.
 
-Email란
--Email
--입력사항은 도메인이름,유저이름,비밀번호
+NTP
+ - Network Time Protocol - port:37 or 123
+ - 이것은 37번과 123번의 차이가 있는데 
+ - udp 37은 xinetd에서 운영할 수 있는 time server이고 udp 123은 ntp데몬으로 운영되는 network time protocol이다.
+ - 하지만 37은 단순히 서버의 시간을 맞추고 123은 다른서버와 비교하기 때문에 정확성이 크다.
 
 
-FTP란
--File Trensfer Protocol - port:21
--파일 전송 프로토콜이다.
+FTP
+ - File Trensfer Protocol - port:21
+ - 파일 전송 프로토콜이다.
 
 
-IOE란
--Internet Of Everything
--사물인터넷 서비스이다.
+IOE
+ - Internet Of Everything
+ - 사물인터넷 서비스이다.
 
-Active Directory Domain란
--이것은 대량의 컴퓨터를 관리할때 쓰인다.
--각각의 컴퓨터를 폴더로 취급한다.
-
-+참고
--리눅스 서버보다 윈도우 서버가 gui로 클릭만 하기 때문에
- 윈도우가 더 쉽다 
+Active Directory Domain
+ - 이것은 대량의 컴퓨터를 관리할때 쓰인다.
+ - 각각의 컴퓨터를 폴더로 취급한다.
