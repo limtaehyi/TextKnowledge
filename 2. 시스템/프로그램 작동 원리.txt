@@ -1,13 +1,14 @@
 프로그램
 
 하드웨어
+mainboard - 주방
 cpu - 요리사 뇌
 core - 뇌의 갯수(물리적)
-thread - 생각의 갯수(논리적)
-processor - 동시에 생각할수 있는 최대 크기
+thread - 뇌의 갯수(논리적)
+processor - 생각을 처리하는 장치
+process - 한 개의 생각
 ram - 도마
 gpu - 보조 예술 전문 요리사
-mainboard - 주방
 repo - 냉장고
 mouse, monitor, keyboard - 웨이터
 program - 재료

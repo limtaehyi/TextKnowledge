@@ -1,4 +1,4 @@
-¸í·É¾î Á¤¸®
+ëª…ë ¹ì–´ ì •ë¦¬
 en
 config t
 hostname
@@ -29,7 +29,7 @@ terminal history size
 ip host DNS IP address
 no ip domain-lookup
 
-º¸¾È¼³Á¤
+ë³´ì•ˆì„¤ì •
 enable password 
 enable secret
 line console 0
@@ -56,12 +56,12 @@ copy running-config tftp
 show flash
 
 
-#¶ó¿ìÅÍ ¼³Á¤
+#ë¼ìš°í„° ì„¤ì •
 interface fa0/0.10
 encapsulation dot1Q 10
 
 
-#dhcp¼³Á¤
+#dhcpì„¤ì •
 ip dhcp pool Outside
 network 172.16.0.0
 default-router 172.16.0.254
@@ -82,7 +82,7 @@ interface GigaEthernet0/0
 ip address dhcp
 
 
-# ¹æÈ­º®
+# ë°©í™”ë²½
 config t
 interface vlan 2
 ip address dhcp setroute
@@ -92,7 +92,7 @@ interface vlan 2
 ip address 172.16.0.253 255.255.255.0
 no shutdown
 
-#¹æÈ­º® Ãß°¡ ¼³Á¤ºĞ(³»ºÎ ¶ó¿ìÅÍ°¡ ¾øÀ» °æ¿ì)
+#ë°©í™”ë²½ ì¶”ê°€ ì„¤ì •ë¶„(ë‚´ë¶€ ë¼ìš°í„°ê°€ ì—†ì„ ê²½ìš°)
 config t
 route outside 0.0.0.0 0.0.0.0 172.16.0.254
 access-list outside_in extended permit icmp any any 
@@ -105,7 +105,7 @@ subnet 192.168.1.0 255.255.255.0
 nat (inside,outside) dynamic interface
 exit
 
-³»ºÎ ¶ó¿ìÅÍ°¡ ÀÖÀ» °æ¿ì
+ë‚´ë¶€ ë¼ìš°í„°ê°€ ìˆì„ ê²½ìš°
 config t
 route outside 0.0.0.0 0.0.0.0 172.16.0.254
 route inside 192.168.2.0 255.255.255.0 192.168.1.1

@@ -1,50 +1,50 @@
-1. osi 7°èÃþ
--¹°¸® 
- ¤¤ ºñÆ® ´ÜÀ§ÀÌ´Ù.
- ¤¤ ±â°èÀû, Àü±âÀû Æ¯¼ºÀ» ÀÌ¿ëÇØ¼­ Åë½Å ÄÉÀÌºí·Î µ¥ÀÌÅÍ¸¦ Àü¼ÛÇÏ´Â ¹°¸®Àû °èÃþ
--µ¥ÀÌÅÍ ¸µÅ©
- ¤¤ ÇÁ·¹ÀÓ ´ÜÀ§ÀÌ´Ù.
- ¤¤ Åë½ÅÀÇ Èå¸§À» °ü¸®ÇÑ´Ù. 
- ¤¤ token ring, CSMA/CA(avoid È¸ÇÇ), CSMA/CD(detection Å½Áö), ethernet
--³×Æ®¿öÅ© (IP°¡ º¸ÀÎ´Ù.)
- ¤¤ ÆÐÅ¶ ´ÜÀ§ÀÌ´Ù.
- ¤¤ ip, icmp, arp, rip°¡ ÀÖ´Ù.
--Àü¼Û (tcp,udp°¡ º¸ÀÎ´Ù.)
- ¤¤ ¼¼±×¸ÕÆ® ´ÜÀ§ÀÌ´Ù.
- ¤¤ tcp, udp°¡ ÀÖÀ¸¸ç ¸Þ¼¼ÁöÀÇ ¿À·ù¸¦ Á¦¾îÇÑ´Ù.
- ¤¤ ¸Þ¼¼Áö°¡ Å¬ °æ¿ì ¼¼±×¸ÕÆ® ´ÜÀ§·Î ³ª´² ³×Æ®¿öÅ© °èÃþÀ¸·Î Àü´ÞÇÑ´Ù.
--¼¼¼Ç
- ¤¤ ¸Þ¼¼Áö ´ÜÀ§ÀÌ´Ù.
- ¤¤ netBIOS°¡ ÀÖÀ¸¸ç µ¥ÀÌÅÍ ±³È¯ÀÇ °æ°è¿Í µ¿±âÈ­¸¦ Á¦°øÇÏ´Â °èÃþÀÌ´Ù.
- ¤¤ ¼¼¼Ç°èÃþÀÇ ÇÁ·ÎÅäÄÝÀº ¿¬°áÀÌ ¼Õ½ÇµÉ °æ¿ì ¿¬°á º¹±¸¸¦ ½ÃµµÇÑ´Ù. Åë½Å ¹æ¹ý¿¡ µû¶ó ÀüÀÌÁß, ¹ÝÀÌÁß Åë½ÅÀ» ÇÑ´Ù.
--Ç¥Çö
- ¤¤ ¸Þ¼¼Áö ´ÜÀ§ÀÌ´Ù.
- ¤¤ ASCII, MPEGµî µ¥ÀÌÅÍÀÇ ¾ÏÈ£È­ º¹È£È­°¡ ÀÌ °èÃþ¿¡¼­ ÀÏ¾î³­´Ù.
--ÀÀ¿ë
- ¤¤ ¸Þ¼¼Áö ´ÜÀ§ÀÌ´Ù.
- ¤¤ dns, http, µîÀÌ ÀÖÀ¸¸ç Åë½ÅÀÇ ÃÖÁ¾ ¸ñÀûÁöÀÌ´Ù.
+1. osi 7ê³„ì¸µ
+-ë¬¼ë¦¬ 
+ ã„´ ë¹„íŠ¸ ë‹¨ìœ„ì´ë‹¤.
+ ã„´ ê¸°ê³„ì , ì „ê¸°ì  íŠ¹ì„±ì„ ì´ìš©í•´ì„œ í†µì‹  ì¼€ì´ë¸”ë¡œ ë°ì´í„°ë¥¼ ì „ì†¡í•˜ëŠ” ë¬¼ë¦¬ì  ê³„ì¸µ
+-ë°ì´í„° ë§í¬
+ ã„´ í”„ë ˆìž„ ë‹¨ìœ„ì´ë‹¤.
+ ã„´ í†µì‹ ì˜ íë¦„ì„ ê´€ë¦¬í•œë‹¤. 
+ ã„´ token ring, CSMA/CA(avoid íšŒí”¼), CSMA/CD(detection íƒì§€), ethernet
+-ë„¤íŠ¸ì›Œí¬ (IPê°€ ë³´ì¸ë‹¤.)
+ ã„´ íŒ¨í‚· ë‹¨ìœ„ì´ë‹¤.
+ ã„´ ip, icmp, arp, ripê°€ ìžˆë‹¤.
+-ì „ì†¡ (tcp,udpê°€ ë³´ì¸ë‹¤.)
+ ã„´ ì„¸ê·¸ë¨¼íŠ¸ ë‹¨ìœ„ì´ë‹¤.
+ ã„´ tcp, udpê°€ ìžˆìœ¼ë©° ë©”ì„¸ì§€ì˜ ì˜¤ë¥˜ë¥¼ ì œì–´í•œë‹¤.
+ ã„´ ë©”ì„¸ì§€ê°€ í´ ê²½ìš° ì„¸ê·¸ë¨¼íŠ¸ ë‹¨ìœ„ë¡œ ë‚˜ëˆ  ë„¤íŠ¸ì›Œí¬ ê³„ì¸µìœ¼ë¡œ ì „ë‹¬í•œë‹¤.
+-ì„¸ì…˜
+ ã„´ ë©”ì„¸ì§€ ë‹¨ìœ„ì´ë‹¤.
+ ã„´ netBIOSê°€ ìžˆìœ¼ë©° ë°ì´í„° êµí™˜ì˜ ê²½ê³„ì™€ ë™ê¸°í™”ë¥¼ ì œê³µí•˜ëŠ” ê³„ì¸µì´ë‹¤.
+ ã„´ ì„¸ì…˜ê³„ì¸µì˜ í”„ë¡œí† ì½œì€ ì—°ê²°ì´ ì†ì‹¤ë  ê²½ìš° ì—°ê²° ë³µêµ¬ë¥¼ ì‹œë„í•œë‹¤. í†µì‹  ë°©ë²•ì— ë”°ë¼ ì „ì´ì¤‘, ë°˜ì´ì¤‘ í†µì‹ ì„ í•œë‹¤.
+-í‘œí˜„
+ ã„´ ë©”ì„¸ì§€ ë‹¨ìœ„ì´ë‹¤.
+ ã„´ ASCII, MPEGë“± ë°ì´í„°ì˜ ì•”í˜¸í™” ë³µí˜¸í™”ê°€ ì´ ê³„ì¸µì—ì„œ ì¼ì–´ë‚œë‹¤.
+-ì‘ìš©
+ ã„´ ë©”ì„¸ì§€ ë‹¨ìœ„ì´ë‹¤.
+ ã„´ dns, http, ë“±ì´ ìžˆìœ¼ë©° í†µì‹ ì˜ ìµœì¢… ëª©ì ì§€ì´ë‹¤.
 
-2. tcp/ip 4°èÃþ
--³×Æ®¿öÅ©
- ¤¤ OSI 7°èÃþÀÇ ¹°¸®°èÃþ°ú µ¥ÀÌÅÍ ¸µÅ© °èÃþÀÌ´Ù.
- ¤¤ ¹°¸®ÀûÀÎ ÁÖ¼Ò·Î MACÀ» »ç¿ëÇÑ´Ù.
--ÀÎÅÍ³Ý
- ¤¤ OSI 7°èÃþÀÇ ³×Æ®¿öÅ© °èÃþ¿¡ ÇØ´çµÈ´Ù.
- ¤¤ Åë½Å ³ëµå°£ÀÇ IPÆÐÅ¶À» Àü¼ÛÇÏ´Â ±â´É°ú ¶ó¿ìÆÃ ±â´ÉÀ» ´ã´çÇÑ´Ù.
- ¤¤ ip, arp, rarp
--Àü¼Û
- ¤¤ OSI 7°èÃþÀÇ Àü¼Û °èÃþ¿¡ ÇØ´çµÈ´Ù.
- ¤¤ Åë½Å ³ëµå °£ÀÇ ¿¬°áÀ» Á¦¾îÇÏ°í ½Å·Ú¼º ÀÖ´Â µ¥ÀÌÅÍ Àü¼ÛÀ» ´ã´çÇÑ´Ù.
- ¤¤ TCP, UDP
--ÀÀ¿ë
- ¤¤ OSI 7°èÃþÀÇ ¼¼¼Ç, Ç¥Çö, ÀÀ¿ë °èÃþ¿¡ ÇØ´çµÈ´Ù.
- ¤¤ FTP, HTTP, SSHµî
+2. tcp/ip 4ê³„ì¸µ
+-ë„¤íŠ¸ì›Œí¬
+ ã„´ OSI 7ê³„ì¸µì˜ ë¬¼ë¦¬ê³„ì¸µê³¼ ë°ì´í„° ë§í¬ ê³„ì¸µì´ë‹¤.
+ ã„´ ë¬¼ë¦¬ì ì¸ ì£¼ì†Œë¡œ MACì„ ì‚¬ìš©í•œë‹¤.
+-ì¸í„°ë„·
+ ã„´ OSI 7ê³„ì¸µì˜ ë„¤íŠ¸ì›Œí¬ ê³„ì¸µì— í•´ë‹¹ëœë‹¤.
+ ã„´ í†µì‹  ë…¸ë“œê°„ì˜ IPíŒ¨í‚·ì„ ì „ì†¡í•˜ëŠ” ê¸°ëŠ¥ê³¼ ë¼ìš°íŒ… ê¸°ëŠ¥ì„ ë‹´ë‹¹í•œë‹¤.
+ ã„´ ip, arp, rarp
+-ì „ì†¡
+ ã„´ OSI 7ê³„ì¸µì˜ ì „ì†¡ ê³„ì¸µì— í•´ë‹¹ëœë‹¤.
+ ã„´ í†µì‹  ë…¸ë“œ ê°„ì˜ ì—°ê²°ì„ ì œì–´í•˜ê³  ì‹ ë¢°ì„± ìžˆëŠ” ë°ì´í„° ì „ì†¡ì„ ë‹´ë‹¹í•œë‹¤.
+ ã„´ TCP, UDP
+-ì‘ìš©
+ ã„´ OSI 7ê³„ì¸µì˜ ì„¸ì…˜, í‘œí˜„, ì‘ìš© ê³„ì¸µì— í•´ë‹¹ëœë‹¤.
+ ã„´ FTP, HTTP, SSHë“±
 
 2.tcp, udp
--tcp ¿¬°á ÁöÇâ, ¼Óµµ ´À¸®°í, ½Å·Ú¼º ³ôÀº ÇÁ·ÎÅäÄÝ
+-tcp ì—°ê²° ì§€í–¥, ì†ë„ ëŠë¦¬ê³ , ì‹ ë¢°ì„± ë†’ì€ í”„ë¡œí† ì½œ
 -socket.SOCK_STREAM
 
--udp ºñ¿¬°á ÁöÇâ, ¼Óµµ ºü¸£°í, ½Å·Ú¼º ³·À½(½Ç½Ã°£ ¼­ºñ½º)
+-udp ë¹„ì—°ê²° ì§€í–¥, ì†ë„ ë¹ ë¥´ê³ , ì‹ ë¢°ì„± ë‚®ìŒ(ì‹¤ì‹œê°„ ì„œë¹„ìŠ¤)
 -socket.SOCK_DGRAM
 
 3 lan
@@ -52,24 +52,24 @@
 -lan > wan > man
       (wide) 
 
-4. Æ÷Æ®Æ÷¿öµù, nat
- - ipv4´Â 255^4°³°¡ ÀÖÁö¸¸ Àü¼¼°è ´Ü¸»±â¿¡°Ô ¸ðµÎ ÇÒ´çÇÏ±â¿¡´Â ºÎÁ·ÇÑ °¹¼öÀÌ´Ù. µû¶ó¼­ ÇÑ ³»ºÎ ³×Æ®¿öÅ© ´ë¿ª¿¡ ÇÒ´çÀ» ÇÏ°í ³»ºÎ ³×Æ®¿öÅ©´Â ÀÓÀÇÀÇ ip¸¦ ÇÒ´çÇÏ´Â °ÍÀÌ NATÀÌ´Ù.
- - ÇÏÁö¸¸ ³»ºÎ¿¡¼­ ÀÓÀÇÀÇ ip¸¦ ÇÒ´ç¹ÞÀº ´Ü¸»±â°¡ ¿ÜºÎÀÇ ´Ü¸»±â¿¡ ¿äÃ»À» º¸³»°í ³­ ÈÄ ¿ÜºÎ ´Ü¸»±â°¡ ´Ù½Ã ³»ºÎÀÇ ¿äÃ»ÇÑ ´Ü¸»±â¿¡ ÀÀ´äÀ» ÇØ¾ßÇÏ´Âµ¥ ÀÌ¶§ »ç¿ëÇÏ´Â °ÍÀÌ Æ÷Æ® ¹øÈ£ÀÌ´Ù. 
- - nat ±â´ÉÀ» ÇÑ ³×Æ®¿öÅ© Àåºñ°¡ Æ¯Á¤ Æ÷Æ®·Î Åë½ÅÀÌ µé¾î¿À¸é Æ¯Á¤ ´Ü¸»±â¿¡ ¿äÃ»À» Àü¼ÛÇÏ´Â ±â´ÉÀÌ ÀÖ°í ¿ÜºÎ¿¡¼­ Æ¯Á¤ Æ÷Æ®·Î ¿äÃ»ÀÌ ¿À¸é ³»ºÎÀÇ Æ¯Á¤ ´Ü¸»±â¿¡ Æ¯Á¤ Æ÷Æ®·Î º¸³»¶ó°í ¼³Á¤ÇÑ °ÍÀÌ Æ÷Æ®Æ÷¿öµùÀÌ´Ù. 
+4. í¬íŠ¸í¬ì›Œë”©, nat
+ - ipv4ëŠ” 255^4ê°œê°€ ìžˆì§€ë§Œ ì „ì„¸ê³„ ë‹¨ë§ê¸°ì—ê²Œ ëª¨ë‘ í• ë‹¹í•˜ê¸°ì—ëŠ” ë¶€ì¡±í•œ ê°¯ìˆ˜ì´ë‹¤. ë”°ë¼ì„œ í•œ ë‚´ë¶€ ë„¤íŠ¸ì›Œí¬ ëŒ€ì—­ì— í• ë‹¹ì„ í•˜ê³  ë‚´ë¶€ ë„¤íŠ¸ì›Œí¬ëŠ” ìž„ì˜ì˜ ipë¥¼ í• ë‹¹í•˜ëŠ” ê²ƒì´ NATì´ë‹¤.
+ - í•˜ì§€ë§Œ ë‚´ë¶€ì—ì„œ ìž„ì˜ì˜ ipë¥¼ í• ë‹¹ë°›ì€ ë‹¨ë§ê¸°ê°€ ì™¸ë¶€ì˜ ë‹¨ë§ê¸°ì— ìš”ì²­ì„ ë³´ë‚´ê³  ë‚œ í›„ ì™¸ë¶€ ë‹¨ë§ê¸°ê°€ ë‹¤ì‹œ ë‚´ë¶€ì˜ ìš”ì²­í•œ ë‹¨ë§ê¸°ì— ì‘ë‹µì„ í•´ì•¼í•˜ëŠ”ë° ì´ë•Œ ì‚¬ìš©í•˜ëŠ” ê²ƒì´ í¬íŠ¸ ë²ˆí˜¸ì´ë‹¤. 
+ - nat ê¸°ëŠ¥ì„ í•œ ë„¤íŠ¸ì›Œí¬ ìž¥ë¹„ê°€ íŠ¹ì • í¬íŠ¸ë¡œ í†µì‹ ì´ ë“¤ì–´ì˜¤ë©´ íŠ¹ì • ë‹¨ë§ê¸°ì— ìš”ì²­ì„ ì „ì†¡í•˜ëŠ” ê¸°ëŠ¥ì´ ìžˆê³  ì™¸ë¶€ì—ì„œ íŠ¹ì • í¬íŠ¸ë¡œ ìš”ì²­ì´ ì˜¤ë©´ ë‚´ë¶€ì˜ íŠ¹ì • ë‹¨ë§ê¸°ì— íŠ¹ì • í¬íŠ¸ë¡œ ë³´ë‚´ë¼ê³  ì„¤ì •í•œ ê²ƒì´ í¬íŠ¸í¬ì›Œë”©ì´ë‹¤. 
 
 5.vpn
  - virtual private network
- - ÀÌ°ÍÀº °¡»óÀÇ Àü¿ë¼±À» ¸¸µé±â ¶§¹®¿¡ ¾ÈÀüÇÏ´Ù.
- - vpnÀº °èÃþº°·Î ºÐ·ùÇÒ ¼ö ÀÖ´Âµ¥ 2°èÃþ¿¡¼­ PPTP, L2TP, L2F·Î Åë½ÅÇÏ°Å³ª 3°èÃþ¿¡¼­ IPSecÀ¸·Î Åë½ÅÇÑ´Ù.
- - IPSec¿¡¼­´Â ÀÎÁõÀ» ´ã´çÇÏ´Â AP(Authentication Header)Çì´õ¿Í ¾ÏÈ£È­¸¦ ÇÏ´Â ESP(encapsulating security payload)°¡ ÀÖÀ¸¸ç Àü¼Û ¸ðµå¿Í ÅÍ³Î¸ðµå¿¡¼­ ´Ù¸£°Ô ÀÛµ¿ÇÑ´Ù.
+ - ì´ê²ƒì€ ê°€ìƒì˜ ì „ìš©ì„ ì„ ë§Œë“¤ê¸° ë•Œë¬¸ì— ì•ˆì „í•˜ë‹¤.
+ - vpnì€ ê³„ì¸µë³„ë¡œ ë¶„ë¥˜í•  ìˆ˜ ìžˆëŠ”ë° 2ê³„ì¸µì—ì„œ PPTP, L2TP, L2Fë¡œ í†µì‹ í•˜ê±°ë‚˜ 3ê³„ì¸µì—ì„œ IPSecìœ¼ë¡œ í†µì‹ í•œë‹¤.
+ - IPSecì—ì„œëŠ” ì¸ì¦ì„ ë‹´ë‹¹í•˜ëŠ” AP(Authentication Header)í—¤ë”ì™€ ì•”í˜¸í™”ë¥¼ í•˜ëŠ” ESP(encapsulating security payload)ê°€ ìžˆìœ¼ë©° ì „ì†¡ ëª¨ë“œì™€ í„°ë„ëª¨ë“œì—ì„œ ë‹¤ë¥´ê²Œ ìž‘ë™í•œë‹¤.
 
 6.IPSec
- - Àü¼Û¸ðµå¿Í ÅÍ³Î¸ðµå°¡ ÀÖ´Ù.
- - ÅÍ³Î¸ðµå : ³×Æ®¿öÅ© Àåºñ¿¡¼­ ³×Æ®¿öÅ© Àåºñ »çÀÌ¸¦ ¾ÏÈ£È­ Åë½ÅÀ» ÇÏ´Â °ÍÀ¸·Î Çì´õ¿Í µ¥ÀÌÅÍ¸¦ ¾ÏÈ£È­ ÇÑµÚ¿¡ AH, ESP¸¦ Ãß°¡ÇÑ´Ù. ÇÏÁö¸¸ ³×Æ®¿öÅ© Çì´õ°¡ °¡·ÁÁö±â ¶§¹®¿¡ ÀÓÀÇÀÇ »õ·Î¿î ip Çì´õ¸¦ ºÎ¿©ÇÑ´Ù.
- - Àü¼Û¸ðµå : ´Ü¸»±â¿Í ´Ü¸»±â »çÀÌ¸¦ ¾ÏÈ£È­ Åë½ÅÇÏ´Â °ÍÀ¸·Î AH, ESP µÑÁß ÇÏ³ª¸¦ »ç¿ëÇØ ¾ÏÈ£È­ ÇÑµÚ Àü¼ÛÇÑ´Ù. ÅÍ³Î¸ðµå¿Í ´Ù¸£°Ô »õ·Î¿î ipÇì´õ¸¦ ºÎ¿©ÇÒ ÇÊ¿ä°¡ ¾ø´Ù.
+ - ì „ì†¡ëª¨ë“œì™€ í„°ë„ëª¨ë“œê°€ ìžˆë‹¤.
+ - í„°ë„ëª¨ë“œ : ë„¤íŠ¸ì›Œí¬ ìž¥ë¹„ì—ì„œ ë„¤íŠ¸ì›Œí¬ ìž¥ë¹„ ì‚¬ì´ë¥¼ ì•”í˜¸í™” í†µì‹ ì„ í•˜ëŠ” ê²ƒìœ¼ë¡œ í—¤ë”ì™€ ë°ì´í„°ë¥¼ ì•”í˜¸í™” í•œë’¤ì— AH, ESPë¥¼ ì¶”ê°€í•œë‹¤. í•˜ì§€ë§Œ ë„¤íŠ¸ì›Œí¬ í—¤ë”ê°€ ê°€ë ¤ì§€ê¸° ë•Œë¬¸ì— ìž„ì˜ì˜ ìƒˆë¡œìš´ ip í—¤ë”ë¥¼ ë¶€ì—¬í•œë‹¤.
+ - ì „ì†¡ëª¨ë“œ : ë‹¨ë§ê¸°ì™€ ë‹¨ë§ê¸° ì‚¬ì´ë¥¼ ì•”í˜¸í™” í†µì‹ í•˜ëŠ” ê²ƒìœ¼ë¡œ AH, ESP ë‘˜ì¤‘ í•˜ë‚˜ë¥¼ ì‚¬ìš©í•´ ì•”í˜¸í™” í•œë’¤ ì „ì†¡í•œë‹¤. í„°ë„ëª¨ë“œì™€ ë‹¤ë¥´ê²Œ ìƒˆë¡œìš´ ipí—¤ë”ë¥¼ ë¶€ì—¬í•  í•„ìš”ê°€ ì—†ë‹¤.
 
 
-7.Æ÷Æ®¹øÈ£ 
+7.í¬íŠ¸ë²ˆí˜¸ 
 21 ftp
 22 ssh
 23 telnet
@@ -82,7 +82,7 @@
 445 https
 3306 mysql
  
-8. IP Çì´õ
+8. IP í—¤ë”
  - ver 4bits
  - header length 4bits
  - service type 8bits
@@ -94,7 +94,7 @@
  - protocol 8bits
  - header checksum 16bits
 
-9. TCP Çì´õ
+9. TCP í—¤ë”
  - source port 16bits
  - destination port 16bits
  - sequence number 32bits
@@ -106,7 +106,7 @@
  - checksum 16bits
  - urgent pointer 16bits
 
-10. UDP Çì´õ
+10. UDP í—¤ë”
  - source port 16bits
  - destination port 16bits
  - total length 16bits
