@@ -1,29 +1,29 @@
-< 2016³â 2ÇĞ±â ÃÖÁ¾ ÀÛ¼º : À±Çı¿ø ¼±»ı´Ô ÃÖÁ¾¼³Á¤ÆÄÀÏ>
-< 2017³â ÃÖ±Ù¼öÁ¤ : ÀÓÃ¢Çö ÃÖÁ¾¼³Á¤ÆÄÀÏ>
+< 2016ë…„ 2í•™ê¸° ìµœì¢… ì‘ì„± : ìœ¤í˜œì› ì„ ìƒë‹˜ ìµœì¢…ì„¤ì •íŒŒì¼>
+< 2017ë…„ ìµœê·¼ìˆ˜ì • : ì„ì°½í˜„ ìµœì¢…ì„¤ì •íŒŒì¼>
 [postfix]
 #1
 yum -y install postfix
 #2
 vi /etc/postfix/main.cf
-# line 75 : ÁÖ¼®Á¦°Å¿Í È£½ºÆ®³×ÀÓ ¼³Á¤
+# line 75 : ì£¼ì„ì œê±°ì™€ í˜¸ìŠ¤íŠ¸ë„¤ì„ ì„¤ì •
 myhostname = mail3.jjcom.kr
-# line 83 : ÁÖ¼®Á¦°Å¿Í µµ¸ŞÀÎ³×ÀÓ ¼³Á¤ (°¡»ó¼­¹ö¿¡¼­ µ¹°íÀÖ´Â µµ¸ŞÀÎ¾²±â)
+# line 83 : ì£¼ì„ì œê±°ì™€ ë„ë©”ì¸ë„¤ì„ ì„¤ì • (ê°€ìƒì„œë²„ì—ì„œ ëŒê³ ìˆëŠ” ë„ë©”ì¸ì“°ê¸°)
 mydomian = jjcom.kr
-# line 99 : ÁÖ¼®Á¦°Å
+# line 99 : ì£¼ì„ì œê±°
 myorigin = $mydomain
-# line 116 : ¹Ù²Ù±â
+# line 116 : ë°”ê¾¸ê¸°
 inet_interfaces = all
-# line 164 : Ãß°¡ÇÏ±â
+# line 164 : ì¶”ê°€í•˜ê¸°
 mydestination = $myhostname, localhost, $mydomian, localhost, $mydomian
-# line 264 : ÁÖ¼®Á¦°Å¿Í ³×Æ®¿öÅ© ´ë¿ª Ãß°¡
+# line 264 : ì£¼ì„ì œê±°ì™€ ë„¤íŠ¸ì›Œí¬ ëŒ€ì—­ ì¶”ê°€
 mynetworks = 127.0.0.0/8, 192.168.0.0/24
-  -> ³×Æ®¿öÅ© ´ë¿ª´ë¸¦ ½áÁÖ±â ÀÚ½ÅÀÇ IP¾²¸é ¾ÈµÊ!!
-# line 419 : ÁÖ¼®Á¦°Å
+  -> ë„¤íŠ¸ì›Œí¬ ëŒ€ì—­ëŒ€ë¥¼ ì¨ì£¼ê¸° ìì‹ ì˜ IPì“°ë©´ ì•ˆë¨!!
+# line 419 : ì£¼ì„ì œê±°
 host_mailbox = Maildir/
-# line 574 : Ãß°¡
+# line 574 : ì¶”ê°€
 smtpd_banner = $myhostname ESMTP
 
-# ÆÄÀÏÇÏ´Ü¿¡ Ãß°¡
+# íŒŒì¼í•˜ë‹¨ì— ì¶”ê°€
 message_size_limit = 10485760
 mailbox_size_limit = 1073741824
 stmpd_sasl_type = dovecot
@@ -45,29 +45,29 @@ yum ?y install dovecot
 #2
 vi /etc/dovecot/dovecot.conf
 
-# line 24 : ÁÖ¼®Á¦°Å
+# line 24 : ì£¼ì„ì œê±°
 protocols = imap pop3 Imtp
-# line 30 : ÁÖ¼®Á¦°Å¿Í ¹Ù²Ù±â
+# line 30 : ì£¼ì„ì œê±°ì™€ ë°”ê¾¸ê¸°
 listen = *
 
 #3
 vi /etc/dovecot/conf.d/10-auth.conf
 
-# line 10 : ÁÖ¼®Á¦°Å¿Í ¹Ù²Ù±â
+# line 10 : ì£¼ì„ì œê±°ì™€ ë°”ê¾¸ê¸°
 disable_plaintext_auth = no
-# line 100 : Ãß°¡
+# line 100 : ì¶”ê°€
 auth_mechanisms = plain login
 
 #4
 vi /etc/dovecot/conf.d/10-mail.conf
 
-# line 30 : ÁÖ¼®Á¦°Å¿Í Ãß°¡
+# line 30 : ì£¼ì„ì œê±°ì™€ ì¶”ê°€
 mail_location = maildir:~/Maildir
 
 #5
 vi /etc/dovecot/conf.d/10-master.conf
 
-#line 96-98 : ÁÖ¼®Á¦°Å¿Í Ãß°¡
+#line 96-98 : ì£¼ì„ì œê±°ì™€ ì¶”ê°€
 #Postfix smtp-auth
 unix_listener /var/spool/postfix/private/auth {
     mode = 0666
@@ -88,13 +88,13 @@ yum ?y install bind bind-utils
 #2
 vi /etc/named.conf
 
-# line 11 : ¹Ù²Ù±â
+# line 11 : ë°”ê¾¸ê¸°
  { any; };
-# line 12 : ¹Ù²Ù±â
+# line 12 : ë°”ê¾¸ê¸°
  { any; };
 
 #3
-vi /etc/named.rfc1912.zones : Ãß°¡
+vi /etc/named.rfc1912.zones : ì¶”ê°€
 
 zone "hyewon.com" IN {
         type master;
@@ -109,7 +109,7 @@ cd /var/named
 cp -rfp named.localhost hyewon.com.zone
 
 #6
-vi /var/named/hyewon.com.zone : Ãß°¡
+vi /var/named/hyewon.com.zone : ì¶”ê°€
 $TTL 1D
 @       IN SOA  ns.hyewon.com. root (
                                         0       ; serial
@@ -143,16 +143,16 @@ yum ?y install nfs-utils
 vi /etc/idmapd.conf
 
 #3
-# line 5 : ÁÖ¼®Á¦°Å¿Í µµ¸ŞÀÎ³×ÀÓ ¹Ù²Ù±â
+# line 5 : ì£¼ì„ì œê±°ì™€ ë„ë©”ì¸ë„¤ì„ ë°”ê¾¸ê¸°
 Domain = test.com
 
 #4
 vi /etc/exports
 
 #5
-# NFS exports ¼³Á¤
-/home ¼­¹ö IP(rw,no_root_squash)
-  -> Á¢±ÙÇÏ´Â IP ¿Í µğ·ºÅä¸® µî·Ï, (r : ÀĞ±â Çã°¡, w : ¾²±â Çã°¡)
+# NFS exports ì„¤ì •
+/home ì„œë²„ IP(rw,no_root_squash)
+  -> ì ‘ê·¼í•˜ëŠ” IP ì™€ ë””ë ‰í† ë¦¬ ë“±ë¡, (r : ì½ê¸° í—ˆê°€, w : ì“°ê¸° í—ˆê°€)
 
 #6
 systemctl start rpcbind nfs-server
@@ -169,21 +169,21 @@ yum ?y install nfs-utils
 vi /etc/idmapd.conf
 
 #3
-# line 5 : ÁÖ¼®Á¦°Å¿Í µµ¸ŞÀÎ³×ÀÓ ¹Ù²Ù±â
+# line 5 : ì£¼ì„ì œê±°ì™€ ë„ë©”ì¸ë„¤ì„ ë°”ê¾¸ê¸°
 Domain = test.com
 
 #4
-# ¼­ºñ½º µ¹¸®±â
+# ì„œë¹„ìŠ¤ ëŒë¦¬ê¸°
 systemctl start rpcbind
 systemctl enable rpcbind
 
 #5
 mount ?t nfs 192.168.0.196:/home /home
-  -> ¼­¹öIP¿Í ¼­¹ö¿¡¼­ ¼³Á¤ÇÑ µğ·ºÅä¸®·Î ½áÁÖ±â
+  -> ì„œë²„IPì™€ ì„œë²„ì—ì„œ ì„¤ì •í•œ ë””ë ‰í† ë¦¬ë¡œ ì¨ì£¼ê¸°
 
 
 
-[web ¼Ò½º¼³Ä¡]
+[web ì†ŒìŠ¤ì„¤ì¹˜]
 
 #1
 yum ?y intall lrzsz
@@ -195,24 +195,24 @@ yum ?y install bzip2
 yum ?y install gcc gcc-c++
 
 #4
-tar xfj pcre(tabÅ°) - ¾ĞÃàÇ®±â
-cd pcre(tabÅ°)
+tar xfj pcre(tabí‚¤) - ì••ì¶•í’€ê¸°
+cd pcre(tabí‚¤)
 tar xfj pcre*
 cd pcre*
 ./configure; make ;make install
 
 #5
 cd /root
-tar xfj httpd(tabÅ°)
-tar xfj apr-1(tabÅ°)
-tar xfj apr-util(tabÅ°)
+tar xfj httpd(tabí‚¤)
+tar xfj apr-1(tabí‚¤)
+tar xfj apr-util(tabí‚¤)
 
-# ¾ĞÃàÀ» Ç¬ ÆÄÀÏ ¿Å±â±â
+# ì••ì¶•ì„ í‘¼ íŒŒì¼ ì˜®ê¸°ê¸°
 
 #6
 mv apr-1.5.1 httpd-2.4.10/srclib/apr
 mv apr-util-1.5.4 httpd-2.4.10/srclib/apr-util
-cd httpd(tabÅ°)
+cd httpd(tabí‚¤)
 
 #7
 ./configure \
@@ -223,7 +223,7 @@ cd httpd(tabÅ°)
 
 #8
 vi /etc/ld.so.conf
-# Ãß°¡
+# ì¶”ê°€
 /web/httpd2/lib
 /web/httpd2/modules
 
@@ -231,12 +231,12 @@ vi /etc/ld.so.conf
 ldconfig
 
 #10
-# º¹»ç
+# ë³µì‚¬
 cp /web/httpd2/bin/apachectl /etc/init.d/httpd2
 
 #11
 vi /etc/init.d/httpd2
-# Ãß°¡
+# ì¶”ê°€
 
 # chkconfig: - 85 15
 # description: Apache Server
@@ -249,11 +249,11 @@ systemctl status httpd2
 
 #13
 cd /root
-tar xfz mariadb(tabÅ°)
-mv mariadb(tabÅ°) /web/mariadb
+tar xfz mariadb(tabí‚¤)
+mv mariadb(tabí‚¤) /web/mariadb
 
 #14
-# ±×·ìÃß°¡
+# ê·¸ë£¹ì¶”ê°€
 groupadd mysql
 adduser -M -d /web/mariadb -g mysql -s /bin/false -r mysql
 
@@ -265,19 +265,19 @@ cd /web/mariadb
 --datadir=/web/mariadb/data
 
 #16
-# ÆÄÀÏ º¹»ç
+# íŒŒì¼ ë³µì‚¬
 cp -a /web/mariadb/support-files/my-huge.cnf /etc/my.cnf
 
 #17
-# Ãß°¡
+# ì¶”ê°€
 
 vi /etc/my.cnf
-[mysqld]ºÎºĞ
+[mysqld]ë¶€ë¶„
 basedir = /web/mariadb
 datadir = /web/mariadb/data
 
 #18
-# Ãß°¡
+# ì¶”ê°€
 cp -a /web/mariadb/support-files/mysql.server /etc/init.d/mariadb
 systemctl start mariadb
 chkconfig mariadb on
@@ -285,7 +285,7 @@ chkconfig mariadb on
 /web/mariadb/bin/mysqladmin -u root ?p password
 
 #19
-# °æ·Î¼³Á¤
+# ê²½ë¡œì„¤ì •
 PATH=$PATH:/web/mariadb/bin
 
 #20
@@ -293,8 +293,8 @@ yum -y install libxml2-devel openssl-devel libjpeg-devel libpng-devel
 
 #21
 cd /root
-tar xfj php(tabÅ°)
-cd php(tabÅ°)
+tar xfj php(tabí‚¤)
+cd php(tabí‚¤)
 
 #22
 ./configure \
@@ -309,21 +309,21 @@ cd php(tabÅ°)
 --with-libxml-dir \
 --with-openssl; make; make install
 
-¡Ø perl,apx ¿À·ùÀÏ °æ¿ì vi /web/httpd2/bin/apxs °æ·Î·Î µé¾î°¡¼­ 
-Ã¹¹øÂ°ÁÙ #!/usr/bin/perl -\ º¯°æ
+â€» perl,apx ì˜¤ë¥˜ì¼ ê²½ìš° vi /web/httpd2/bin/apxs ê²½ë¡œë¡œ ë“¤ì–´ê°€ì„œ 
+ì²«ë²ˆì§¸ì¤„ #!/usr/bin/perl -\ ë³€ê²½
 
 #23
 ls ?l /web/httpd2/modules/libphp5.so
 
 #24
 vi /web/httpd2/conf/httpd.conf
-# line 147  : È®ÀÎ
+# line 147  : í™•ì¸
 LoadModule php5_module modules/libphp5.so
-# line 376 : Ãß°¡
+# line 376 : ì¶”ê°€
 AddType application/x-httpd-php .php .php3 .php4 .php5 .htm .html .inc
 
 #25
-# º¹»ç
+# ë³µì‚¬
 cp php.ini-production /etc/php.ini
 
 #26
@@ -339,7 +339,7 @@ vi /web/httpd2/htdocs/phpinfo.php
 ?>
 
 
-[ÇÏµåµğ½ºÅ©]
+[í•˜ë“œë””ìŠ¤í¬]
 
 #1
 ls ?l /dev/sd*
@@ -390,16 +390,16 @@ chmod 777 /home/share
 #3
 vi /etc/samba/smb.conf
 
-# line 66 : Ãß°¡
+# line 66 : ì¶”ê°€
 unix charset = UTF-8
 dos charset = CP932
-# line 90 : ¹Ù²Ù±â
+# line 90 : ë°”ê¾¸ê¸°
 workgroup = WORKGROUP
-# line 96 : ÁÖ¼®Á¦°Å¿Í IP ¹Ù²Ù±â
+# line 96 : ì£¼ì„ì œê±°ì™€ IP ë°”ê¾¸ê¸°
 hosts allow = 127. 192.168.0.
-# line 126 : Ãß°¡
+# line 126 : ì¶”ê°€
 map to quest = Bad User
-# ¸¶Áö¸·¿¡ Ãß°¡
+# ë§ˆì§€ë§‰ì— ì¶”ê°€
 [Share] # any name you like
     path = /home/share # shared directory
     writable = yes # writable
@@ -414,7 +414,7 @@ systemctl start smb nmb
 systemctl enable smb
 systemctl enable nmb
 
-[½ºÅ©¸³Æ® ¹é¾÷]
+[ìŠ¤í¬ë¦½íŠ¸ ë°±ì—…]
 
 
 #1
@@ -444,7 +444,7 @@ mkdir /backup
 yum ?y install rdate
 
 #7
-rdate ?s time time.bora.net (½Ã°£À» º¯°æ)
+rdate ?s time time.bora.net (ì‹œê°„ì„ ë³€ê²½)
 
 #8
 date 120717222016
@@ -466,7 +466,7 @@ yum -y install vsftpd
 vi /etc/dhcp/dhcpd.conf
 
 #3
-# Ãß°¡
+# ì¶”ê°€
 
 vi /etc/dhcp/dhcpd.conf
 subnet 192.168.0.0 netmask 255.255.255.0 {
@@ -482,7 +482,7 @@ subnet 192.168.0.0 netmask 255.255.255.0 {
 
 #4
 vi /etc/xinetd.d/tftpd
-# ¹Ù²Ù±â 
+# ë°”ê¾¸ê¸° 
 disabled = no
 
 
@@ -494,9 +494,9 @@ yum ?y install dhcp
 #2
 vi /etc/dh cp/dhcpd.conf
 
-# Ãß°¡
+# ì¶”ê°€
 
-option domain-name  ¡°hyewon.com¡±;
+option domain-name  â€œhyewon.comâ€;
 option domain-name-server 192.168.0.101;
 default-lease-time 60;
 max-lease-time 7200;

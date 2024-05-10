@@ -1,9 +1,9 @@
-¼­¹ö Á¤¸®
+ì„œë²„ ì •ë¦¬
 
-¼­¹ö ¼³Ä¡ »çÀÌÆ®
+ì„œë²„ ì„¤ì¹˜ ì‚¬ì´íŠ¸
 https://www.server-world.info/
 
-1. ¼­¹öÁ¾·ù
+1. ì„œë²„ì¢…ë¥˜
  - HTTP         
  - DHCP
  - DHCP_V6
@@ -18,58 +18,58 @@ https://www.server-world.info/
  +Domain active directory
 
 
-2. ¼­¹ö¼³¸í
+2. ì„œë²„ì„¤ëª…
 
 HTTP
  - HyperText Trensfer Protocol - port:80 or 8080
- - ±×³É ÀÎÅÍ³ÝÇÒ¶§ ¾²ÀÌ´Â ÇÁ·ÎÅäÄÝ
+ - ê·¸ëƒ¥ ì¸í„°ë„·í• ë•Œ ì“°ì´ëŠ” í”„ë¡œí† ì½œ
 
 
 DHCP
  - Dynamic Host Configuration Protocol - port:67 or 68
- - ÄÄÇ»ÅÍ 4´ë ¿ä¼Ò¸¦ ÀÚµ¿±¸¼ºÇØÁÜ
+ - ì»´í“¨í„° 4ëŒ€ ìš”ì†Œë¥¼ ìžë™êµ¬ì„±í•´ì¤Œ
 
 
 TFTP
  - Trivial File Transfer Protocol - port:69
- - ftp¿Í ¸¶Âù°¡Áö·Î ÆÄÀÏÀü¼Û ¸ñÀûÀ» °®°í ÀÖÁö¸¸ ftpº¸´Ü ´Ü¼øÇÑ ¹æ½ÄÀ¸·Î ÆÄÀÏÀ» Àü¼ÛÇÑ´Ù
+ - ftpì™€ ë§ˆì°¬ê°€ì§€ë¡œ íŒŒì¼ì „ì†¡ ëª©ì ì„ ê°–ê³  ìžˆì§€ë§Œ ftpë³´ë‹¨ ë‹¨ìˆœí•œ ë°©ì‹ìœ¼ë¡œ íŒŒì¼ì„ ì „ì†¡í•œë‹¤
 
 
 DNS
  - Domain Name System - port:53
- - µµ¸ÞÀÎ¸¦ ¾ÆÀÌÇÇÁÖ¼Ò(Á¤¹æÇâ), ¾ÆÀÌÇÇÁÖ¼Ò¸¦ µµ¸ÞÀÎ(¿ª¹æÇâ)À¸·Î ÀüÈ¯ÇØÁØ´Ù
+ - ë„ë©”ì¸ë¥¼ ì•„ì´í”¼ì£¼ì†Œ(ì •ë°©í–¥), ì•„ì´í”¼ì£¼ì†Œë¥¼ ë„ë©”ì¸(ì—­ë°©í–¥)ìœ¼ë¡œ ì „í™˜í•´ì¤€ë‹¤
  - nslookup, dnsenum
 
 
 SYSLOG
  - SYStem LOG
- - ±× ¸»´ë·Î ½Ã½ºÅÛÀÇ ·Î±×Á¤º¸¸¦ ¼öÁýÇÏ´Â ¼­ºñ½ºÁß ÇÏ³ª´Ù.
+ - ê·¸ ë§ëŒ€ë¡œ ì‹œìŠ¤í…œì˜ ë¡œê·¸ì •ë³´ë¥¼ ìˆ˜ì§‘í•˜ëŠ” ì„œë¹„ìŠ¤ì¤‘ í•˜ë‚˜ë‹¤.
 
 
 AAA
  - Authentication, Authorization and accounting
- - ÀÎÁõ¼­ºñ½ºÀÌ´Ù.
- - ÀÌ°ÍÀº Å¬¶óÀÌ¾ðÆ® ¾ÆÀÌÇÇ,ÀÌ¸§,ºñ¹Ð¹øÈ£¸¦ ¹Þ¾Æ³ö¼­ ³ªÁß¿¡ ÀÎÁõÇÒ¶§ ¾´´Ù.
- - Á¾·ù´Â radius,Tacacs°¡ ÀÖÀ¸¸ç ³ªÁß¿¡ APÀÇ WPA enterprise¿¡¼­µµ ÀÎÁõ¼­¹ö¸¦ »ç¿ë¿©ºÎ¸¦ 
- ¼³Á¤ÇÒ ¼ö ÀÖ´Ù.
+ - ì¸ì¦ì„œë¹„ìŠ¤ì´ë‹¤.
+ - ì´ê²ƒì€ í´ë¼ì´ì–¸íŠ¸ ì•„ì´í”¼,ì´ë¦„,ë¹„ë°€ë²ˆí˜¸ë¥¼ ë°›ì•„ë†”ì„œ ë‚˜ì¤‘ì— ì¸ì¦í• ë•Œ ì“´ë‹¤.
+ - ì¢…ë¥˜ëŠ” radius,Tacacsê°€ ìžˆìœ¼ë©° ë‚˜ì¤‘ì— APì˜ WPA enterpriseì—ì„œë„ ì¸ì¦ì„œë²„ë¥¼ ì‚¬ìš©ì—¬ë¶€ë¥¼ 
+ ì„¤ì •í•  ìˆ˜ ìžˆë‹¤.
 
 
 NTP
  - Network Time Protocol - port:37 or 123
- - ÀÌ°ÍÀº 37¹ø°ú 123¹øÀÇ Â÷ÀÌ°¡ ÀÖ´Âµ¥ 
- - udp 37Àº xinetd¿¡¼­ ¿î¿µÇÒ ¼ö ÀÖ´Â time serverÀÌ°í udp 123Àº ntpµ¥¸óÀ¸·Î ¿î¿µµÇ´Â network time protocolÀÌ´Ù.
- - ÇÏÁö¸¸ 37Àº ´Ü¼øÈ÷ ¼­¹öÀÇ ½Ã°£À» ¸ÂÃß°í 123Àº ´Ù¸¥¼­¹ö¿Í ºñ±³ÇÏ±â ¶§¹®¿¡ Á¤È®¼ºÀÌ Å©´Ù.
+ - ì´ê²ƒì€ 37ë²ˆê³¼ 123ë²ˆì˜ ì°¨ì´ê°€ ìžˆëŠ”ë° 
+ - udp 37ì€ xinetdì—ì„œ ìš´ì˜í•  ìˆ˜ ìžˆëŠ” time serverì´ê³  udp 123ì€ ntpë°ëª¬ìœ¼ë¡œ ìš´ì˜ë˜ëŠ” network time protocolì´ë‹¤.
+ - í•˜ì§€ë§Œ 37ì€ ë‹¨ìˆœížˆ ì„œë²„ì˜ ì‹œê°„ì„ ë§žì¶”ê³  123ì€ ë‹¤ë¥¸ì„œë²„ì™€ ë¹„êµí•˜ê¸° ë•Œë¬¸ì— ì •í™•ì„±ì´ í¬ë‹¤.
 
 
 FTP
  - File Trensfer Protocol - port:21
- - ÆÄÀÏ Àü¼Û ÇÁ·ÎÅäÄÝÀÌ´Ù.
+ - íŒŒì¼ ì „ì†¡ í”„ë¡œí† ì½œì´ë‹¤.
 
 
 IOE
  - Internet Of Everything
- - »ç¹°ÀÎÅÍ³Ý ¼­ºñ½ºÀÌ´Ù.
+ - ì‚¬ë¬¼ì¸í„°ë„· ì„œë¹„ìŠ¤ì´ë‹¤.
 
 Active Directory Domain
- - ÀÌ°ÍÀº ´ë·®ÀÇ ÄÄÇ»ÅÍ¸¦ °ü¸®ÇÒ¶§ ¾²ÀÎ´Ù.
- - °¢°¢ÀÇ ÄÄÇ»ÅÍ¸¦ Æú´õ·Î Ãë±ÞÇÑ´Ù.
+ - ì´ê²ƒì€ ëŒ€ëŸ‰ì˜ ì»´í“¨í„°ë¥¼ ê´€ë¦¬í• ë•Œ ì“°ì¸ë‹¤.
+ - ê°ê°ì˜ ì»´í“¨í„°ë¥¼ í´ë”ë¡œ ì·¨ê¸‰í•œë‹¤.
