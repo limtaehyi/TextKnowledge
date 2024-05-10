@@ -28,5 +28,8 @@
  - 포렌식 하기 전 HASH(MD5, SHA1, SHA256)값을 분명히 적어둬야 하며 파일을 읽기 전 레지스트리 편집기에서 쓰기방지를 해둬야한다.
  HKLM -> SYSTEM -> CurrentControlSet -> Control -> StorageDevicepolices WriteProtect 값을 1로 변경
  또는 cmd창에서 cd / -> reg add HKLM/System/CurrentControlSet/Control/StorageDeviePolicies \t Reg_dword \v WriteProtect /f /d 1
- 
+
+
+5. MFT
+ - 
 
