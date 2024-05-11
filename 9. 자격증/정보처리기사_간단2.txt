@@ -1,0 +1,45 @@
+1.부팅순서
+ - post, cmos, mbr, ntloader, ntoskrnl(hal로드)
+2. hal
+ - LSM이 사용자 확인
+ - SAM에 있는 사용자 정보 비교
+ - SRM이 SID를 부여
+ - sid 500이 관리자 501이 게스트 1000이상이 일반 사용자
+3. registry
+ - current user 현재 로그인한
+ - current config 하드웨어 프로파일
+ - classes root 파일들의 확장자 규정 및 매칭 프로그램
+ - local machine 하드웨어 설정 및 드라이브 
+ - users 모든 사용자, 그룹 정보
+4. ssl
+ - 레헨리알 레코드, 헨드쉐이크, change cipher, alert
+5. 국내 암호개발
+ - seed, hight, aria, lea
+6. icmp
+ - 0 에코 응답
+ - 1 목적지 도달 불가
+ - 2 너무 큼
+ - 3 시간 초과
+ - 4 발신 억제
+ - 5 재지정
+ - 8 에코요청
+ - 9 라우터광고
+ - 10 라우터 간청
+ - 11 시간초과
+7. 블록
+ - ECB 각각 암호화
+ - CBC 두개 xor한걸 암호화를 ~ xor
+ - CFB 키를 암호화 한걸 xor을 ~ 암호화
+ - OFB 암호화 한걸 xor ~ 암호화
+ - CTR 키를 1씩 증가한걸 암호화 한걸 xor
+8. udp 막기
+ - 미발패애
+ - 미사용, 발신자, 패킷임계, 애니캐스트
+9. 전자서명
+ - rsa 소인수
+ - elgamal 이산대수
+ - ecdsa 타원곡선
+ - kcdsa 킴치
+10. IoT 4계층
+ - 감네서인
+ - 감지, 네트워크, 서비스, 인터페이스

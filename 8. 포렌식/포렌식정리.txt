@@ -30,6 +30,19 @@
  또는 cmd창에서 cd / -> reg add HKLM/System/CurrentControlSet/Control/StorageDeviePolicies \t Reg_dword \v WriteProtect /f /d 1
 
 
-5. MFT
- - 
+5. 암호화
+ - 단방향 - 해쉬 - MDC (변경감지코드)
+                     - MAC (메세지인증코드)
+ - 양방향 - 대칭키 - 스트림암호 - xor 연산 - 동기, 비동기
+                        - 블록암호 - feistel (평문블록을 다시 선형, 비선형으로 나눔)
+                                      - SPN (그냥 평문 블록화)
+            - 공개키 - 키 배송 문제 해결
+
+6. 해쉬
+7. 파일 시스템
+8. NTFS
+9. MBR
+10. VBR
+11. MFT
+12. inode 
 
