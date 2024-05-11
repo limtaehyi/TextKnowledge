@@ -29,6 +29,11 @@
  HKLM -> SYSTEM -> CurrentControlSet -> Control -> StorageDevicepolices WriteProtect 값을 1로 변경
  또는 cmd창에서 cd / -> reg add HKLM/System/CurrentControlSet/Control/StorageDeviePolicies \t Reg_dword \v WriteProtect /f /d 1
 
+5. 부팅 과정
+ - Windows
+ ㄴ 전원 -> BIOS -> Pre POST -> POST -> MBR -> VBR -> bootmgr -> ntoskrnl.exe (new tech os kernal) -> HAL -> winlogon.exe
+ - LINUX
+ ㄴ 전원 -> BIOS -> POST -> 
 
 5. 암호화
  - 단방향 - 해쉬 - MDC (변경감지코드)
@@ -36,13 +41,39 @@
  - 양방향 - 대칭키 - 스트림암호 - xor 연산 - 동기, 비동기
                         - 블록암호 - feistel (평문블록을 다시 선형, 비선형으로 나눔)
                                       - SPN (그냥 평문 블록화)
-            - 공개키 - 키 배송 문제 해결
+             - 공개키 - 키 배송 문제 해결
 
-6. 해쉬
+6. 해시
+ - 데이터를 임의의 길이를 갖는 고정된 문자열로 출력하는 함수
+ - 해시 테이블, 해시 셋, 캐시, 변조 탐지/에러 검출등 사용됨
+ - MD5, SHA-1, SHA-256, SHA-512, CRC등
+ - 강한 해시 조건
+ ㄴ 역상 저항성 : 주어진 결과 값에 대해 입력값을 계산하기 어려워야 한다.
+ ㄴ 제2역상 저항성 : 주어진 입력값에 대해 충돌쌍을 갖는 다른 입력값을 계산하기 어려워야 한다.
+ ㄴ 충돌 저항성 : 충돌쌍을 갖는 두개의 입력값을 계산하는것이 어려워야 한다.
+
+
 7. 파일 시스템
+ - 컴퓨터에서 파일이나 자료를 쉽게 발견하고 접근 할수 있게 정렬한 조직체계
+ - NTFS, EXT4, FAT등이 있다.
+
+
 8. NTFS
+ - New Technology File System의 약자로 윈도우에서 FAT을 대체 하기 위해 NT 3.1에 처음 발표한 파일 시스템이다.
+ - VBR + MFT + Data Area로 구성되어 있으며 파티션이 2개 이상이면 부팅과 파티션 관련된 부분은 맨앞에 MBR에 명시되어 있다.
+
+
 9. MBR
+ - Master Boot Record의 약자로 총 512byte로 구성되어있다.
+ - Boot Code (446Byte) + Partition Table Entry (16*4 = 64Byte) + Signature (2Byte)
+ - Boot Code는 Post 과정 이후 저장매체에 존재하는 첫번째 섹터를 호출하게 되는데 이때 사용된다.
+
+
 10. VBR
+
+
 11. MFT
+
+
 12. inode 
 
