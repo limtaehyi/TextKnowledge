@@ -2,6 +2,7 @@
 
 ## I don't know anything about computer
 
+[참고사항(마인드맵)](https://github.com/limtaehyi/MyMindMap)
 1. 네트워크
    - 네트워크 기본정리
    - 네트워크 기본정리2
