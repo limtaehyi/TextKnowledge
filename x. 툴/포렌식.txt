@@ -1,0 +1,22 @@
+live response collect
+volatility
+audancity
+exiftool
+forevid
+kakaodecrypt
+networkminer
+sysinternalssuite
+winsearchDBanalyzer
+forensic explorer
+autopsy
+010 editor
+ftk imager
+crt.sh
+fl studio
+treesize free
+santoku
+wireshark
+tcpdump
+hxd
+sqlite
+lnk parser

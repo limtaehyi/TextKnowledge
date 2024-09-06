@@ -1,0 +1,31 @@
+sql inject
+
+1. column
+
+2. from
+
+3. where
+
+func
+ - if
+ - substr(a,b,c) 
+  > a를 b번째 시작점부터 c개 추출
+ - bin(int a) 
+  > a를 2진수 변환
+ - ascii
+ - concat(string a, string b) 
+  > a와 b 문자열 연결
+ - ord(a) 
+  > a를 ascii code 숫자로 변환 
+ - char(a) 
+  > a를 문자로 변환
+ - extractvalue(XML a, Xpath b) 
+  > a 데이터에서 b식을 통해 데이터 추출
+   ex) select extractvalue('<a>test</a> <b>abcd</b>', '/b')
+    -> abcd
+  > xpath에서 " : (0x3a)" 는 잘못된 xpath이고 응용 가능
+   ex) select extractvalue(1,concat(0x3a,(select password from users where username='admin')));
+    -> ERROR 1105 (HY000): XPATH syntax error: ':Th1s_1s_admin_PASSW@rd'
+    -> xpath의 잘못된 구문인 콜론과 추출한 비밀번호를 concat으로 연결하려고 해서 에러가 나옴
+ - updatexml(a,b,c)
+ - sleep(a)
