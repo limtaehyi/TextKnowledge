@@ -1,22 +1,29 @@
-live response collect
-volatility
-audancity
+live response collect - 실시간 모든 휘발성 데이터 
+volatility - 메모리 분석
+audancity - 소리를 이미지로
 exiftool
 forevid
-kakaodecrypt
-networkminer
-sysinternalssuite
+kakaodecrypt - 카톡db 분석
+networkminer - 네트워크 패킷 분석
+sysinternalssuite - 윈도우 프로세스 및 기타 정보 분석
 winsearchDBanalyzer
-forensic explorer
-autopsy
-010 editor
-ftk imager
-crt.sh
-fl studio
-treesize free
+forensic explorer - 포렌식 분석
+autopsy - 포렌식 분석
+010 editor - hex를 자세히
+ftk imager - 포렌식 분석
+crt.sh - cert파일 분석
+fl studio - 소리파일 분석
+treesize free - 디렉토리 구조 분석
 santoku
-wireshark
-tcpdump
-hxd
-sqlite
-lnk parser
+wireshark - 네트워크 패킷
+tcpdump - 네트워크 패킷 덤프
+hxd - hex분석
+sqlite - sqlite db 분석
+lnk parser - 링크 파서
+rla - 레지스트리 정리 및 데이터 통합
+registry explorer - 레지스트리 분석 gui
+regripper - 레지스트리 분석 cli
+
+
+KAPE
+dumpit / winpmem - 메모리 덤프
