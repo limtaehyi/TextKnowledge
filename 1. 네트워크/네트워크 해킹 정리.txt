@@ -15,10 +15,11 @@
 7. Wireless Network
  - WEP
  - WPA / WPA2
-8. DOS, DDOS, DRDOS (with IoT)
+8. DOS, DDOS, DRDOS
  - DOS
  - DDOS
  - DRDOS
 9. Google hacking
 10. OSINT
 11. Password Cracking
+12. Cloning
