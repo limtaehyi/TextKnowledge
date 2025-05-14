@@ -1,0 +1,10 @@
+# 도커 빌드파일
+docker buildx build -t pwnubuntu:latest .
+
+# 도커 실행
+docker run -it --name test pwnubuntu:latest /bin/zsh
+
+# 도커 확인
+docker ps -a
+docker start pwnubuntu
+docker exec -it pwnubuntu /bin/zsh

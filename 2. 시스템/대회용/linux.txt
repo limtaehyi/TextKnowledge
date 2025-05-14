@@ -1,0 +1,24 @@
+# s to asm
+gcc test.c -o test -g
+nasm -f elf64 -o test.o test.s
+ld -o test test.o
+
+
+#dump 
+objdump -d test
+
+
+# 파일 분석
+file test
+string test
+readelf -h test
+
+# pwndbg
+pwndbg test
+b *0x000000
+c
+info
+x/10gx 0x000000
+bt
+tele
+set 

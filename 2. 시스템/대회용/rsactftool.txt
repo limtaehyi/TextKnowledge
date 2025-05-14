@@ -1,0 +1,3 @@
+# e값이 매우 클 경우 (wiener method)
+
+./RsaCtfTool.py -n xxx -e xxx --uncipher xxx
