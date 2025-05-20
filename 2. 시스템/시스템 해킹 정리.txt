@@ -34,7 +34,9 @@
  - 
 
  Double Free
- - 
+ - malloc을 이용해서 heap을 할당 할때 요청한 사이즈보다 크게 나오는 데 동적 메모리가 할당 될때 해당 메모리에 대한 정보들이 포함되기 때문이다.
+ - 할당된 메모리 정보들은 malloc_chunk의 구조체로 pre_size, size, fd, bk, fd_next_size, bk_nextsize가 있다.
+ - pre_size는 이전 chunk가 해제되면 설정되는 값, size는 현재 chunk 크기, fd는 이전 chunk의 주소값, bk는 다음 chunk의 주소값이다. fd, bk는 unsorted chunk list에 사용되는 값이며 chunk가 동적 할당되고 해제될때 unsorted chunk list에 들어간다.
 
  Frame Pointer Overflow
  - 버퍼 오버플로우로 인해 sfp값을 임의의 주소로 변경하는 취약점으로 취약 함수의 sfp를 덮어써 ebp를 쉘코드 부분으로 옮기게 한다음 esp로 실행.
@@ -54,6 +56,11 @@
 
  House of Spirit
  - 
+
+ GOT Overwrite
+ - GOT Overwrite는 동적 방식으로 컴파일된 바이너리가 공유 라이브러리를 호출 할때 PLT, GOT를 이용하는 것을 공격하는 기법니다.
+ - PLT는 GOT를 참조하고 GOT에는 함수의 실제 주소가 있는데 GOT를 변경하면 호출할 함수를 바꾸는 것과 동일하다.
+ - 타겟 함수의 plt 주소를 디스어샘블해보면 GOT 주소가 보이는데 이 주소를 바꾸면 된다.
 
 3. 방어
  DEP, NX bit
