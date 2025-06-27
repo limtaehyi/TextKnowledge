@@ -1,4 +1,6 @@
-1. 환경 설정 및 쉘 방법
+1. Docker
+
+ 환경 설정 및 쉘 방법
  - docker(./how2use.txt 참고)
  - WSL2
  - 대회용 폴더 참고
@@ -7,11 +9,13 @@
  perl -e 'print "\xbf\x84\x04\x08"'
  perl -e 'print "A"x10 . "test" . "\n"'
 
-2. 공격 
+
+2. 공격
+
  Buffer Over Flow
- - stack, heap이 있으며 둘다 버퍼에서 데이터를 넘겨 sfp, ret까지 수정하는 것을 의미
- - stack : 메모리의 스택 프레임은 아래부터 변수2, 변수1, ret, sfp, (ebp), local var으로 이루어져 있으며 local var에서 버퍼로 읽어들인 값이 sfp, ret의 영역을 침범하여 공격을 한다.
- - heap : 
+ - 메모리는 code, data, bss, heap, shared lib, stack으로 이루어져 있으며 그중 heap, stack의 버퍼의 정해진 크기를 넘겨 sfp, ret까지 수정하는 것을 의미
+ - stack : 메모리의 스택 프레임은 아래부터 변수2, 변수1, ret, sfp(이전 함수의 ebp), (현재 함수의 ebp), local var으로 이루어져 있으며 local var에서 버퍼로 읽어들인 값이 sfp, ret의 영역을 침범하여 공격을 한다.
+ - heap : 자료구조의 힙은 tree 구조를 지니고 있다. 하지만 메모리의 힙은 여러개의 chunk단위로 나뉘며 할당되면 header(prev_size, size), data로 해제되면 header(prev_size, size), fd(이전chunk), bk(다음chunk)로 이루어져 있다. 여기에서 힙 오버플로우는 스택과 다르게 프로그램의 함수 포인터를 조작하여 공격을 한다.
 
  Format String Bug
  - 포멧 문자열은 printf 함수에서 사용되는 출력 문자열을 뜻하며 %기호로 변수 출력의 방법을 설정한다. 하지만 포멧 문자열의 개수와 매개변수의 개수가 일치하지 않으면 fsb로 메모리의 주소를 알아낼 수 있다.
@@ -62,7 +66,9 @@
  - PLT는 GOT를 참조하고 GOT에는 함수의 실제 주소가 있는데 GOT를 변경하면 호출할 함수를 바꾸는 것과 동일하다.
  - 타겟 함수의 plt 주소를 디스어샘블해보면 GOT 주소가 보이는데 이 주소를 바꾸면 된다.
 
+
 3. 방어
+
  DEP, NX bit
  - 메모리는 code, data, stack, heap으로 이루어져 있다. 이중 data, stack, heap 부분에는 rwx권한이 있는데 DEP는 윈도우의 데이터 실행 방지 기능이며 이 3개의 섹션에 서 코드 실행을 금지하도록 설정하는 것이다. 만약 stack에 코드 실행 권한이 없다면 스택에 쉘코드를 복사, 실행한다고 해도 실행되지 않는다.
  - 작업관리자 창에서 프로세스 탭에서 확인이 가능하다.
@@ -89,7 +95,9 @@
  - PIE는 위치 독립 코드로 이루어진 실행파일을 의미하며 코드가 매핑된 주소와 상관없이 실행되기 때문에 코드 매핑이 되는 메모리 영역이 매번 다르다.
  - 기존의 절대주소를 바탕으로 하는 plt, got 영역에 접근이 어려워졌다.
 
+
 4. 우회 
+
  RTL
  -  
 
