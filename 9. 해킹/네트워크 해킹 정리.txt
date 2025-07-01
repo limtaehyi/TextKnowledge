@@ -1,0 +1,162 @@
+1. Port scan
+
+ 포트 스캔
+ - 컴퓨터의 포트는 0-65535까지 있으며 이중에서 포트의 열림 유무로 서비스의 종류를 알 수 있다.
+ - 0-1023은 well-known, 1024-49151은 registed, 나머지는 동적포트로 불린다.
+ - 포트스캔에는 여러 종류가 있으며 ping sweeping, stealth scanning, udp scanning, os fingerprinting등 여러가지가 있다.
+ - 포트 스캔의 방어 방법은 네트워크 보안장비가 막거나 포트 스캔에 대해 잘못된 정보를 주거나 ACL로 막는등 여러가지 대처가 가능하다.
+
+ Nmap
+ - nmap은 포트스캔 전용 툴이며 여러가지 옵션으로 포트들의 열림 상태를 판별하기에 용이하다.
+ - Gui 버전도 있으며 Zenmap이다.
+ - https://nmap.org/
+
+ Nmap Option - Host Discovery
+ - sL : 스캔할 대상 출력
+ - Pn : ping 테스트 없이 모든 대상 스캔
+ - PS : TCP SYN ping
+ - PA : TCP ACK ping
+ - PU : UDP ping
+ - PE : ICMP png
+ - PP : ICMP Timestamp ping
+ - PM : ICMP Netmask ping
+ - PO : IP Protocol ping
+ - traceroute
+
+ Nmap Option - Scan Tech
+ - sS : TCP SYN scan
+ - sT : TCP Connect scan
+ - sA : TCP ACK scan
+ - sW : TCP Window scan
+ - sU : UDP scan
+ - sN : TCP Null scan
+ - sF : TCP FIN scan
+ - sX : TCP Xmas scan
+ - --scanflags <flags> : custom TCP scan ( ex -> nmap --scanflags SYNFIN 192.168.0.0 )
+ - sO : IP protocol scan
+
+ Nmap Option - Port spec, Scan order
+ - p : 지정된 포트만 스캔
+ - F : 고속모드
+ - r : 순차적으로 스캔
+
+ Nmap Option - Service, Version detect
+ - sV : 포트의 서비스, 버전 정보
+ - --allports : 제외없이 모든 포트 스캔
+
+ Nmap Option - Os detect
+ - O : os 탐색
+ - --osscan-limit : 지정된 대상에만 OS 탐색
+ - --max-os-tries
+
+ Nmap Option - Timing, Performance
+ - T <0-5> : 스캔 속도 설정, 높으면 좋음
+
+ Nmap Option - Firewall, IDS evasion and Spoofing
+ - f : 패킷 조각화
+ - S <IP> : 지정한 ip주소로 변조하여 보냄
+ - e <iface> : 지정한 인터페이스로 보냄
+ - g / --source-port <num> : 지정한 포트번호를 출발지로 설정
+ - --data <hex> : 전송 패킷에 페이로드 추가
+ - --data-string <string> : 전송 패킷에 지정 문자 추가
+ - --data-length <num> : 전송 패킷에 지정한 길이의 랜덤 데이터 추가
+ - --ttl <val> : 지정한 값으로 TTL 설정
+ - --badsum : 잘못된 체크섬으로 패킷 전송
+
+ Nmap Option - Output
+ - oN : 스캔 결과를 일반 형식으로 저장
+ - oX : XML로 저장
+ - oS : 스크립트 형으로 저장
+ - oA : 모든 형식으로 저장
+ - v : 더 많은 정보 출력
+ - --reason : 포트가 해당 상태인 이유 출력
+ - --open : 열려 있는 포트만 표시
+ 
+ Nmap Option - Misc
+ - A : 공격적 스캔
+ - 6 : IPv6 활성화
+ - V : nmap 버전 정보 출력
+ - h : help
+
+
+2. Sniffing
+
+ 스니핑
+ - 네트워크상에서 다른 트래픽을 훔쳐보는 행위이며 자신이 받아야 할 정보가 아닌데도 받는 조작행위이다.
+ - 허브에서 정보가 브로드캐스팅 되고 있다면 단순히 받아들이는 것만으로도 스니핑 가능하며 NIC의 Promiscuous Mode를 활성화 하면 목적지 관계없이 모든 패킷을 받는다.
+ - 스위치에서는 정보가 브로드캐스팅 되지 않고 목적지를 특정하여 보내진다. 또한 패킷을 받는 것만으로는 스니핑이 불가능 하여 다른 해킹 공격을 통해 스니핑이 가능하다.
+
+ Switch Jamming
+ - 스위치의 mac 주소 테이블을 가득 채우면 네트워크 세그먼트를 브로드 캐스트하는 것을 이용한다.
+ - 툴은 네트워크 분석, 공격인 dsniff, mac 주소 오버플로우인 macof
+
+ ARP Spoofing
+ - 같은 대역대에서 서버와 클라이언트의 mac주소를 공격자의 mac주소로 속인다.
+ - 공격자는 promiscuous mode가 설정되어 있어야 하며 클라이언트의 정보 수집이 필요하다.
+ - 공격자는 다른 호스트의 mac 주소를 자신의 mac 주소로 위조한 ARP reply를 망에 지속적으로 브로드캐스트를 한다.
+ - 희생자는 ARP reply를 받고 자신의 ARP Cache table에 있는 해당 IP의 mac주소를 공격자의 mac주소로 바꾼다.
+ - 대응법으로는 ARP cache table을 정적으로 구성하거나 SSL 방식으로 중요 정보는 암호화 한다.
+ - 툴은 TCP/IP 단편화, 변조, 네트워크장비 우회의 fragroute, 직접적인 공격인 arpspoof
+ - fragroute : 옵션은 B1부터 B4까지 있으며 패킷을 나누는데 B4는 최대 크기로 나누는 것이다.
+ - arpspoof
+ - i [interfaces] : 공격자가 사용할 네트워크 인터페이스 이름
+ - t [target_ip] : 타겟
+ - r [gateway_ip] : 게이트웨이
+ - c 
+ - ex) arpspoof -i eth0 -t 192.168.0.1(gateway) 192.168.0.2(victim)
+
+ ARP Redirect
+ ICMP Redirect
+
+
+3. Wireless Network
+
+ 무선네트워크
+ - Wi-Fi는 근거리 무선망이며 Wireless Fidelity의 약자이다.
+ - 유선망의 네트워크를 모뎀을 통해 공유기인 Access Point가 무선으로 바꿔줘서 네트워크 통신을 하며 2.4GHz는 통신하는 주파수가 넓기 때문에 벽을 통과하지만 5GHz는 주파수가 짧기 때문에 벽을 넘기 힘들어 벽뒤의 통신은 불안정해진다.
+ - 무선 네트워크도 보안 규격이 있는데 WEP와 WPA/WPA2가 있다.
+ - 공격 툴로는 aircrack-ng가 있다.
+
+ WEP
+ - Wired Equivalent Privacy의 약자로 IEEE 802.11 표준에 정의된 보안 규격이다.
+ - 40비트 공유키 + 24비트 Initial Vector를 조합한 64비트 키를 사용하며 RC4 암호화 전송을 하지만 현재는 쓰이지 않는다.
+ - 공유 비밀키의 Key ID를 평문으로 전달하므로 암호화키의 유출과 짧은 길이의 암호키 사용, 불안전한 RC4 알고리즘 사용으로 인해 현재는 쓰이지 않는다.
+ - aircrack-ng 실습
+ - ifconfig wlan0 downs -> airmon-ng start wlan0 -> iwconfig -> airodump-ng wlan0mon -> airodump-ng -c <ch> -w <savefilename> --bssid <bssid> wlan0mon -> (new terminal) -> aireplay-ng -1 0 -a <AP's mac> -h <wlan0's mac> wlan0mon -> aireplay-ng -3 -b <AP's mac> -h <wlan0's mac> wlan0mon -> (data > 10000) -> aircrack-ng -b <AP's mac> <savefilename.cap>
+
+ WPA / WPA2
+ - Wi-Fi Protected Access의 약자로 와이파이 암호화 규격이며 wep보다 강한 암호를 지원한다.
+ - 사전 공유 키 방식을 이용한 WPA-Personal(WPA-PSK), 인증 서버를 이용한 WPA-Enterprise(WPA-EAP)가 있다.
+ - aircrack-ng를 통해 해킹이 가능하다. AP에 직접적인 무차별 대입 공격을 하면 막히지만 네트워크 상의 데이터를 수집하여 그 것에 대한 aircrack-ng로 공격하면 뚫릴 가능성이 높다.
+
+
+4. DOS, DDOS, DRDOS
+
+ Denial of Service
+ - 시스템이나 네트워크의 취약점을 통해 대량의 데이터를 보내 서버가 정상적인 서비스를 하지 못하게 만드는 공격이다.
+ - 네트워크 자원 소진, 시스템 자원 소진 (디스크, 메모리, 프로세스 고갈), 자원 파괴
+ - 종류로는 대역폭 공격, 자원 소진 공격, Web/DB 부하 공격이 있다.
+ - 대역폭 공격 : UDP, ICMP, TCP를 사용하며 ICMP/UDP Flooding Fragmentation, UDP 기반 반사공격이 가능하다. 동일 네트워크에서 사용한 모든 시스템을 타겟으로 하며 위/변조 가능하다. 일시적으로 대량의 트래픽을 발생시킨다.
+ - 자원 소진 공격 : TCP를 사용하며 SYN Flooding, Flag Flooding, TCP Open Flooding등 공격이 가능하다. 대상 서버, 보안장비, 네트워크 장비에 공격이 가능하며 위/변조 가능하다. 대역폭 공격에 비해 적은 트래픽으로 공격 가능함.
+ - Web/DB 부하공격 : HTTP, HTTPS를 사용하며 비정상적인 HTTP request, HTTP Get Flooding 등 웹 요청에 대한 논리적 공격을 하며 대상 web/db 서버에 과부하 발생 시킨다. 위/변조가 가능하며 정상 세션을 맺은 뒤에 과도한 HTTP 요청으로 과부하 유도.
+ - 공격 기법 : Ping of Death, Land attack, SYN Flooding, Smurf, slowloris, RUDY, Teardrop
+
+ DDOS
+
+ DRDOS
+
+
+8. Google hacking
+9. OSINT
+10. Password Cracking
+11. Cloning
+
+
+
+
+
+
+
+
+
+
