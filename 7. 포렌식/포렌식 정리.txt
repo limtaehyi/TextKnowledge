@@ -1,0 +1,160 @@
+1. 포렌식
+
+ Digital Forensic 
+ - 지문이나 모발, DNA등을 검사해서 증거를 얻어내는 것이다.
+ - 디지털 포렌식은 법적 증거 자료 수집 및 내부 정보 유출이나 회계 감사등의 내부 보안에 대한 것이다.
+ - 디지털 포렌식은 로그기록 감시, 데이터 복구, 데이터의 추출 및 파기, 법적 책임 이행태세 확립등으로 사용가능 하다.
+ - 디지털 포렌식의 분류는 디스크 포렌식, 시스템 포렌식, 네트워크 포렌식, 인터넷 포렌식, 모바일 포렌식, 데이터베이스 포렌식, 암호 포렌식 침해사고 대응 포렌식, 사물인터넷 포렌식으로 나뉜다.
+ - 포렌식 전용 이미지는 .E01이다.
+ - 포렌식 하기 전 HASH(MD5, SHA1, SHA256)값을 분명히 적어둬야 하며 파일을 읽기 전 레지스트리 편집기에서 쓰기방지를 해둬야한다.
+ - ex) HKLM -> SYSTEM -> CurrentControlSet -> Control -> StorageDevicepolices WriteProtect 값을 1로 변경 또는 cmd창에서 cd / -> reg add HKLM/System/CurrentControlSet/Control/StorageDeviePolicies \t Reg_dword \v WriteProtect /f /d 1
+
+
+2. 전자적 증거의 진정성
+
+ 원본성
+ - 전자적 증거는 그자체로는 가시성, 가독성이 없으므로 가기성 있는 인쇄물로 출력하여 법원에 제출할 수 밖에 없다. 
+
+ 동일성(무결성)
+ - 전자적 증거는 다른 정거와 달리 훼손ㆍ변경이 용이한 특성으로 인하여 최초 증거가 저장된 매체에서 법정에 제출되기까지 변경이나 훼손이 없어야 한다. 
+ - 현 국내 수사기관에서는 전자적 증거를 무결성을 증명하기 위하여 하드디스크 등의 저장매체를 압수한 다음 피압수자의 서명을 받아 봉인하고, 서명, 봉인과정을 비지오 카메라로 녹화 하고 있다. 
+ - 압수한 저장장치의 해쉬 값과 이미지 파일의 해쉬 값을 비교하거나 영상녹화물에 의한 입증, 포렌식 조사관의 법정증언 또는 법원에 검증을 신청하는 등 여러가지 방법이 있다.
+ 
+ 신뢰성
+ - 전자적 증거는 수집에서 분석까지의 모든 단계에서 신뢰할 수 잇어야한다. 우선 전자적 증거를 수집하고 분석하는데 사용되는 하드웨어 및 소프트웨어의 신뢰가 이루어져야 한다.
+ - 전자적 증거를 수집, 분석 한느 사람이 전문적인 지식을 갖추고 있어야 한다.
+ - 전자적 증거를 수집, 분석하는데 사용되는 컴퓨터는 정확하고, 프로그램은 신뢰할 수 있어야 한다.
+
+
+3. 부팅 과정
+
+ Windows
+ - 전원 -> BIOS -> Pre POST -> POST -> MBR -> VBR -> bootmgr -> ntoskrnl.exe (new tech os kernal) -> HAL -> winlogon.exe
+
+ LINUX
+ ㄴ 전원 -> BIOS -> POST -> 
+
+
+4. 암호화
+
+ 단방향
+ - 단방향 -> 해쉬 -> MDC (변경감지코드)
+                       -> MAC (메세지인증코드)
+
+ 양방향
+ - 양방향 -> 대칭키 -> 스트림암호 -> xor 연산 -> 동기, 비동기
+                          -> 블록암호   -> feistel (평문블록을 다시 선형, 비선형으로 나눔)
+                                            -> SPN (그냥 평문 블록화)
+             -> 공개키 -> 키 배송 문제 해결
+
+
+5. 해시
+
+ Hash
+ - 데이터를 임의의 길이를 갖는 고정된 문자열로 출력하는 함수
+ - 해시 테이블, 해시 셋, 캐시, 변조 탐지/에러 검출등 사용됨
+ - MD5, SHA-1, SHA-256, SHA-512, CRC등 
+
+ 강한 해시 조건
+ - 역상 저항성 : 주어진 결과 값에 대해 입력값을 계산하기 어려워야 한다.
+ - 제2역상 저항성 : 주어진 입력값에 대해 충돌쌍을 갖는 다른 입력값을 계산하기 어려워야 한다.
+ - 충돌 저항성 : 충돌쌍을 갖는 두개의 입력값을 계산하는것이 어려워야 한다.
+
+
+6. 파일 시스템
+
+ File System
+ - 컴퓨터에서 파일이나 자료를 쉽게 발견하고 접근 할수 있게 정렬한 조직체계
+ - NTFS, EXT4, FAT등이 있다.
+
+
+7. Windows File System 
+
+ NTFS
+ - New Technology File System의 약자로 윈도우에서 FAT을 대체 하기 위해 NT 3.1에 처음 발표한 파일 시스템이다.
+ - VBR + MFT + Data Area로 구성되어 있으며 파티션이 2개 이상이면 부팅과 파티션 관련된 부분은 맨앞에 MBR에 명시되어 있다.
+ - ex) MBR - VBR - C:\ - VBR - D:\
+
+ MBR
+ - Master Boot Record의 약자로 디스크의 첫번째 섹터에 512byte로 구성되어있다.
+ - MBR에서는 부팅 가능한 파티션의 위치와 파티션 테이블을 저장한다.
+ - Boot Code (446Byte) + Partition Table Entry (16*4 = 64Byte) + Signature (2Byte)
+
+ VBR
+ - Volume Boot Record의 약자로 MBR은 디스크의 첫번째 섹터에만 있지만 VBR은 각각의 파티션의 첫번째에 위치해 있다.
+ - VBR에는 Boot Sector, Vol size, FAT 위치, $MFT 위치등 볼륨에 관한 정보들이 있다. VBR이 손상되면 볼륨의 정상적인 인식이 불가능해진다.
+ - FAT32의 VBR은 볼륨의 첫번째 섹터에서 +6의 위치에 Backup VBR이 있고 NTFS는 볼륨의 마지막 섹터에 Backup이 있다.
+
+ FAT32 VBR
+ - Backup Boot Sec : backup boot sector의 위치
+ - BPS : 섹터 한개당 크기
+ - SP : 1개의 클러스트의 섹터 갯수
+ - Reserved Sec Cnt : VBR의 크기
+ - Total Sector 32 : 파티션이 차지하는 총 섹터의 수. 볼륨용량은 총섹터수 * 섹터크기 - (VBR + FAT1 + FAT2가 차지하는 섹터수) * 섹터크기이다.
+ - FAT size 32 : FAT 영역의 각각의 크기
+ - Root Directory Cluster : 파일 시스템의 최상위 root 폴더의 클러스터
+
+ NTFS VBR
+ - BPS : 섹터 1개의 크기
+ - SP : 1개의 클러스터의 섹터 갯수
+ - Reserved Sectors : 0x00
+ - Total Sectors : 해당 파티션의 총 섹터의 수
+ - Start Cluster $MFT : MFT의 시작 위치
+ - Start Cluster for $MFTMirr : MFT 백업의 시작 위치
+
+ MFT
+ - Master File Table Record의 약자로, MFT는 여러개의 MFT entry들로 이루어져 있는데 이 MFT entry는 각각의 파일 정보를 1:1로 대응한 1kb 크기의 레코드이다.
+ - MFT entry는 entryheader, attributes, endmarker로 이루어져 있다.
+ 
+ MFT entry header
+ - Signature : "FILE"
+ - Offset to fixup array : fixup 배열(연속된 fixup 값)의 시작 위치
+ - Sequence Number : 해당 MFT 엔트리가 할당, 해제될 때마다 1씩 증가하는 값
+ - Offset to first attribute : 첫 번째 속성의 위치
+ - Flags :  MFT 엔트리의 속성
+ - Used size of MFT Entry : 실제 사용되는 크기
+ - Allocated size of MFT Entry : MFT 엔트리 크기 (1024 바이트)
+ - File reference to base record : base record의 MFT 엔트리 주소 값
+
+ MFT entry attributes
+ - Attributes는 수많은 attr header + attr content로 이루어져 있으며 attr header는 속성 Type ID값이 오고 attr content는 그에 따른 내용이 들어가 있다.
+ - Type 16 (0x10), $STANDARD_INFORMATION : 파일의 최근 생성, 접근, 수정 시간 및 소유자
+ - Type 48 (0X30), $FILE_NAME : 파일 이름, 최근 생성, 접근, 수정 시간
+ - Type 64 (0X40), $OBJECT_ID : 파일 및 디렉터리의 16바이트 고유 값
+ - Type 128 (0X80), $DATA : 파일 내용
+ - Type 176 (0XB0), $BITMAP : MFT의 비트맵 할당 정보
+ - MFT entry에 속성을 저장하는 방식은 Resident (MFT entry내에 존재), Non-Resident (속성 내용이 너무 커 별도의 클러스터를 할당받아 저장) 방식이 있다.
+ - 클러스터 런 : 매우 큰 동영상 파일일 경우 Non-Resident로 별도의 클러스터를 할당 받는다고 했을때 너무 많은 클러스터를 사용해야된다. 이때 클러스터 들은 하드의 여유공간이 많으면 연속적으로 할당 하지만 대부분은 비연속적으로 할당한다.
+
+
+8. Linux File System
+
+ VFS
+ - Virtual File System의 약자로 파일시스템 관련 인터페이스를 사용자 공간 앱에 제공하는 커널 서브 시스템이다.
+ - VFS는 아무리 다른 파일 시스템이라 해도 공존할 수 있게 공통된 인터페이스를 제공해준다. 즉 FD의 시스테콜을 호출해도 물리적 매체나 종류 상관없이 동작하게 해준다.
+ - VFS의 주요 객체는 슈퍼블록, inode, dentry, file이 있다.
+
+ SuperBlock
+ - /usr/include/linux/fs.h 에 구조체가 정의되어있다.
+ - 슈퍼블록은 각 파일시스템별로 구현하며 본질적인 파일시스템 메타데이터이다. 여기에 파일 시스템의 유형, 크기, 상태, 다른 메타데이터 구조차의 정보가 들어있다.
+ - df -h
+
+ inode
+ - 슈퍼블록은 파일시스템 전반에 걸친 메타데이터를 저장했다면 아이노드는 파일 각각의 메타데이터를 가지고 있다. 1:1 매칭
+ - inode는 파일의 소유자, 접근권한, 파일 타입등 파일의 정보를 가지고 있다.
+ - 모드(Mode) : inode가 어떤 파일유형(d:디렉토리, -:파일, l:링크 등)에 해당하는지를 나타내는 정보와 접근 권한을 나타내는 정보 저장
+ - 소유자 정보 : 파일 또는 디렉토리에 대한 사용자와 그룹 식별자
+ - 크기 : 파일의 크기로 Byte 단위로 표현
+ - 타임스탬프 : inode가 만들어진 시간과 최종적으로 수정된 시간 기록
+ - 데이터블록 : inode가 표현하고 있는 데이터가 저장된 블록의 포인터
+ - VFS에 마운트 되기 위해서는 반드시 메모리에 inode 객체를 구축해야 한다.
+
+ Dentry
+ - Directory Entry의 약자이며 inode의 번호와 파일 이름을 관련하여 파일과 inode를 연결해주는 역할을 한다.
+ - dentry는 캐시를 사용하여 자주 접근되는 경로를 더 빠르게 접근시켜준다.
+ - 예를들어 /home/test/document/aa.txt가 있으면 각각의 경로를 dentry 객체로 유지한다. /, home, test, document, aa.txt와 같이 모든 경로를 객체화 해서 저장한다.
+ - VFS는 경로명을 사용할때 dentry cache에서 먼저 찾고 없으면 직접 경로를 탐색한다.
+
+ File
+ - 파일 객체는 프로세스가 사용중인 파일을 표현하는 객체이다. 프로세스는 다른것이 아닌 파일을 직접 다룬다.
+
