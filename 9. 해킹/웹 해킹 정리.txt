@@ -1,0 +1,15 @@
+ - sqli, blind, error, time
+ - command, xpath, xxe injection
+ - xss, stored, reflect, dom
+ - csrf
+ - ssrf
+ - file upload
+ - file download
+ - lfi
+ - rfi
+ - ssti
+ - parameter 
+ - web page access
+ - robots
+ 
+ - cors
