@@ -5,9 +5,28 @@
  - 루팅은 안드로이드에서 이루어지고 난이도는 간단했었다. 또한 운영체제 시스템 내부의 침입이며 시스템 변형을 위한 행위를 목적으로 한다.
 
 2. apk
+
+ 구조 및 개요
  - apk는 기본적으로 zip으로 변경이 가능하며, xml과 java로 이루어져 있다.
  - 정적 분석으로는 Apktool, dex2jar, GD-gui의 툴로 분석 가능하며 동적 분석으로는 proxy나 packet capture로 분석 가능하다.
+ - apk는 assets, lib, meta-inf, res, androidmanifest.xml, dex로 이루어져 있다.
  - apk 분석은 Androidmanifest.xml, asset, classes.dex, resources.arsc, Meta-inf를 중점적으로 분석한다.
- - 앱의 권한을 표시하는 androidmanifest.xml
- - java코드인 resources.arsc
- - 메타 데이터인 Meta-inf
+
+ assets
+ - 앱 정보를 포함하는 디렉토리
+
+ lib
+ - JNI lib 파일(.so)이 저장된 디렉토리
+
+ META-INF
+ - 서명에 관한 정보가 저장된 디렉토리
+
+ res
+ - XML이 저장된 디렉터리
+
+ AndroidManifest.xml
+ - 앱의 정보가 저장된 파일이며 Android의 빌드 도구, 운영체제, 앱에서 필요한 권한등의 정보들을 정의하고 있다.
+ - 앱 분석시 가장 먼저 확인해야 하는 파일이며 Entry point 경로, 앱 권한등의 정보를 볼 수 있다.
+
+ Dex
+ - Dalvik exec, .class 파일을 Bytecode로 변환한 파일

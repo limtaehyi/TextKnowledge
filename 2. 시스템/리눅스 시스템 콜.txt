@@ -52,26 +52,26 @@
 
 4. 시스템 콜 종류
 
- 프로세스 제어 (Process Control)
+ 프로세스 제어
  - fork(), exit(), wait(), 끝내기(end), 중지(abort), 적재(load), 실행(execute), 프로세스 생성(create process)
  - 프로세스 속성 획득과 설정(get process attribute and set process attribute), 시간 대기(wait time)
  - 사건 대기(wait event), 사건을 알림(signal event), 메모리 할당 및 해제 malloc, free
 
- 파일 조작 (File Manipulation)
+ 파일 조작
  - open(), read(), write(), close(), 파일 생성(create file), 파일 삭제(delete file) 
  - 열기(open), 닫기(close), 읽기(read), 쓰기(write), 위치 변경(reposition), 파일 속성 획득 및 설정(get file attribute and set file attribute)
 
- 장치 관리 (Device Management)
+ 장치 관리
  - ioctl(), read(), write(), 장치를 요구(request devices), 장치를 방출release device), 읽기, 쓰기, 위치 변경
  - 장치 속성 획득, 장치 속성 설정, 장치의 논리적 부착(attach) 또는 분리(detach)
 
- 정보 유지 (Information Maintenace)
+ 정보 유지
  -getpid(), alarm(), sleep(), 시간과 날짜의 설정과 획득(time), 시스템 데이터의 설정과 획득(date), 프로세스 파일, 장치 속성의 획득 및 설정
 
- 통신 (Communication)
+ 통신
  - pipe(), shm_open(), mmap(), 통신 연결의 생성, 제거, 메시지의 송신, 수신, 상태 정보 전달, 원격 장치의 부착 및 분리
 
- 보호 (Pretection)
+ 보호
  - chmod(), umask(), chown(), 권한(Permission) 설정
 
 
