@@ -1,19 +1,30 @@
 1. DB
- -  
+ 
+ DB, DBMS
+ - 데이터베이스란 여러 데이터를 저장하기 위한 집합체를 뜻한다.
+ - 데이터베이스를 관리하고 운영하는 소프트웨어를 DBMS (DB Management Sys)라고 하며 데이터를 저장하는 방식과 시스템에 따라 종류가 갈린다.
+ - MySQL, MariaDB, PostgreSQL, Oracle, SQL Server, DB2, Access, SQLite 등등
 
-2. 계층형 DB (HDBMS)
+
+2. 계층형 DB
+
+ HDBMS
  - 폴더와 파일등의 계층 구조로 데이터를 저장하는 방식
  - 데이터와의 관계를 트리 구조로 정의 하여 부모-자식 형태를 가진다.
  - 종류로는 하드디스크, DVD 파일 시스템
  - 장점은 데이터의 엑세스 속도가 빠르고 데이터 사용량을 쉽게 예측할 수 있다.
  - 단점은 상하 종속적인 관계로 초기 세팅후 프로세스 수용이 어려울 수 있다.
 
-3. 관계형 DB (RDBMS)
+
+3. 관계형 DB 
+
+ RDBMS
  - 행, 열을 가지는 표형식으로 데이터를 저장하는 방식
  - SQL을 이용하여 관리 및 접근
  - 종류로서는 oracle, sql server, postgresql, mysql이 있다.
  - 장점으로는 다양한 용도 가능, 높은 성능, 데이터 무결성 보장, 높은 신뢰성, 명확한 스키마 정의, 관계를 통한 데이터를 중복없이 한번만 저장 한다.
  - 단점은 대량의 데이터 입력 처리, 컬럼 확장 어려움(유연성 부족), 수평 확장의 어려움 
+
 
 4. NoSQL
 
@@ -49,6 +60,36 @@
  - 단점으로는 쿼리가 복잡성, 중복 데이터, 확장성 제한이 있다.
 
 
+6. SQL
 
+ SQL
+ - Structed Query Language
+ - 데이터베이스에서 자주 사용하는 쿼리 언어로 DDL, DML, DCL, TCL인 순서대로 정의, 조작, 제어, 트렌젝션 제어로 4개로 나뉜다. 
 
+ DDL
+ - Create : 테이블 생성
+ - Alter : 테이블 구조 수정
+ - Drop : 테이블 삭제
+ - Rename : 테이블 이름 수정
+ - Comment : 
+ - Truncate : 테이블 모든 데이터 삭제
 
+ DML
+ - Select : 데이터 검색
+ - Insert : 데이터 추가
+ - Update : 데이터 수정
+ - Delete : 데이터 삭제
+ - Merge : 데이터 체크 후 CRUD를 한번에 작업
+ - Call : 사용자 정의 함수
+ - Explain plan
+ - Lock table
+
+ DCL
+ - Grant : 사용자에게 작업 수행 권한 부여
+ - Revoke : 권한 회수
+
+ TCL
+ - Commit : 트렌잭션 작업 완료 후 데이터베이스 반영
+ - Rollback : 트렌잭션 변경 사항 취소 및 이전으로 복구
+ - Savepoint
+ - transaction

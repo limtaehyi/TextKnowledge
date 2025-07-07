@@ -1,88 +1,91 @@
-명령어 정리
+1. 기본 설정
+
+ - 모든 설정 조회
+en
+show running-config
+
+ - 이더넷
 en
 config t
 hostname
-interface fastethernet
-ip address
+interface fastethernet 0/0
+ip address <IP> <Subnet>
 clock rate
 no shutdown
 
+ - Vlan
 config t
 int vlan 1
-ip address
+ip address <IP> <Subnet>
 no shutdown
 
+ - DHCP
 config t
 interface fastethernet 0/0
 ip address dhcp
 
+ - Banner
+en
 config t
-interface GigabitEthernet0/0
-ip address dhcp
-
-
 banner motd
 
-history size 
-terminal history size
+ - en 비밀번호 설정
+en
+config t
+enable password <PW> : 비밀번호 평문 저장 또는 service password-encryption로 암호화
+enable secret <PW> : 비밀번호 암호화 저장
 
-ip host DNS IP address
-no ip domain-lookup
 
-보안설정
-enable password 
-enable secret
+ - 접속 비밀번호 설정
+en
+config t
 line console 0
-password
+password <PW>
 login
 
-service password-encryption
-enable password
-line console 0
-password
-login
-
-
+ - telnet 비밀번호 설정
+en
+config t
 line vty 0 4
-password
+password <PW>
 login
 
-username jjcom password 
+ - CLI 사용자 추가
+username <username> password <PW>
 line console 0
 login local
 
 
-copy running-config tftp
-show flash
+2. 라우터
 
-
-#라우터 설정
+ 라우터 설정
+en
+config t
 interface fa0/0.10
 encapsulation dot1Q 10
 
 
-#dhcp설정
+- DHCP설정
 ip dhcp pool Outside
-network 172.16.0.0
-default-router 172.16.0.254
-dns-server 8.8.8.8
-ip dhcp excluded-address 172.16.0.254
+network <Network Band>
+default-router <Gateway>
+dns-server <DNS>
+ip dhcp excluded-address <Gateway>
 
-
-ip dhcp pool jjcom
-network 192.168.2.0 255.255.255.0
-default-router 192.168.2.254
-dns-server 8.8.8.8
+ip dhcp pool <username>
+network <Network Band> <Subnet>
+default-router <Gateway>
+dns-server <DNS>
 exit
 ip dhcp excluded-address 192.168.2.254
-
 
 config t
 interface GigaEthernet0/0
 ip address dhcp
 
 
-# 방화벽
+3. 방화벽
+
 config t
 interface vlan 2
 ip address dhcp setroute
@@ -92,7 +95,7 @@ interface vlan 2
 ip address 172.16.0.253 255.255.255.0
 no shutdown
 
-#방화벽 추가 설정분(내부 라우터가 없을 경우)
+ - 방화벽 추가 설정분(내부 라우터가 없을 경우)
 config t
 route outside 0.0.0.0 0.0.0.0 172.16.0.254
 access-list outside_in extended permit icmp any any 
@@ -105,7 +108,7 @@ subnet 192.168.1.0 255.255.255.0
 nat (inside,outside) dynamic interface
 exit
 
-내부 라우터가 있을 경우
+ - 내부 라우터가 있을 경우
 config t
 route outside 0.0.0.0 0.0.0.0 172.16.0.254
 route inside 192.168.2.0 255.255.255.0 192.168.1.1

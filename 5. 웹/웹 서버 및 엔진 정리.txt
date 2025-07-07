@@ -1,0 +1,132 @@
+1. 웹 서버
+ 
+ 정의
+ - 웹서버란 하드웨어적 서버에 접속한 사용자에게 웹 서비스를 제공하기 위한 소프트웨어 서버의 종류이다.
+ - 기본적인 프로토콜은 HTTP를 사용하여 인터넷을 통해 서버와 클라이언트가 통신을 하며 포트는 80이다. 암호화 통신은 HTTPS를 사용하며 포트는 443을 사용한다.
+ - 웹서버는 수많은 크랄이언트와 통신을 하며 파일 전송이나 동영상은 따로 서버를 구현하여 통신을 한다. 파일전송은 FTP, 실시간 동영상은 UDP를 주로 사용한다.
+
+
+2. 웹 서버 동작
+
+ DNS
+ - 일단 네트워크에 연결된 기기는 IP, Gateway, Subnet, DNS 서버 주소를 입력이 된상태이다.
+ - 예를 들어 http://www.test.com에 기기가 웹 브라우저를 통해 요청을 한다면 첫번째로 로컬의 C:\windows\System32\drivers\etc\hosts.txt에서 검색한다. 
+ - 만약 hosts.txt에 없으면 DNS 캐시 테이블에서 검색을하는데 ipconfig /displaydns를 검색하면 나온다. 
+ - 그럼에도 없으면 로컬 DNS 서버에서 찾는다. 로컬 DNS 서버란 인터넷을 제공하는 회사가 운영하는 DNS이며 nslookup을 통해 확인할 수 있다.
+ 
+ Wireshark
+ - 네트워크 패킷 캡처를 위한 Wireshark를 통해 웹 패킷을 분석할 수 있는데, 특정 패킷을 Conversation 메뉴를 통해 서버와 클라이언트의 통신 패킷들을 분석 할 수 있다.
+ - 웹 패킷은 웹 헤더와 바디로 나눌 수 있으며 헤더에는 패킷에 대한 정보와 통신 방법을 정의해 놓고 바디에는 데이터 정보들이 있다.
+
+
+3. 웹 패킷 헤더
+
+ 헤더
+ - 헤더는 크게 요청 헤더와 응답 해더 두개로 나뉘며 순서는 비슷해도 모양이 다르다.
+ - 요청 헤더는 순서대로 전송방법인 메소드, HTTP 버전, Host, User-Agent, Accept, Accept-Language, Cookie 등이 있다.
+ - 응답 헤더는 순서대로 HTTP 버전, HTTP 상태 코드, Date, Content-length가 있다.
+
+4. 웹 요청 헤더
+
+ Method (HTTP 전송 방법)
+ - GET : HTTP 서버에 데이터 검색을 요청할 때로 구현을 해놓으며, 파라미터를 URL을 통해 전송한다.
+ - POST : HTTP 서버에 데이터를 생성, 수정, 삭제 요청할 때로 구현을 해놓으며, body영역에 소켓을 활용하여 데이터를 전송한다.
+ - HEAD : 서버 쪽 데이터를 검색하고 요청할 때로 구현
+ - OPTIONS : 사용 가능한 메소드를 나타냄
+ - PUT : 메세지에 포함된 데이터를 지정한 URI에 저장
+ - DELETE : URI에 지정되어 있는 자원을 지움
+ - TRACE : 루프백 테스트, 프록시/게이트웨이의 중간 경로를 알 수 있음
+
+ HTTP 버전
+ - HTTP 1.1
+
+ Host
+ - url
+
+ User-Agent
+ - 사용자 식별정보를 담는데 application, operation sys, vendor, browser version 등의 정보를 포함한다.
+
+ Accept
+ - 클라이언트인 자신에게 데이터 타입의 허용 목록
+
+ Accept-Language
+
+ Cookie
+ - 쿠키
+
+
+5. 웹 응답 헤더
+
+ HTTP 버전
+ - HTTP 1.1
+
+ HTTP 상태 코드
+ - 100번대 : 정보 전송을 뜻하는 코드
+ - 200번대 : 클라이언트 요청 성공. 보통 200, 201 이 많이 쓰인다.
+ - 300번대 : 리다이렉션 코드. 301은 요청을 다른 URL로 항시 전달, 302는 요청을 임시 URL로 변경
+ - 400번대 : 클라이언트 측 에러. 400은 잘못된 요청, 401은 인증 추가 요구, 403은 접근 차단, 404는 요청한 자료가 없음, 405는 사용 불가능한 메소드 사용
+ - 500번대 : 서버 측 에러. 500 서버가 요청을 실행 불가
+
+ Date
+ - 응답이 서버에 의해 생성, 보낸 시간
+
+ Content-Length
+ - 송신 되는 객체의 바이트 수
+
+
+6. 보호 기법 및 헤더
+
+ SOP
+ - Same Origin Policy
+ - 동일 출처 정책으로 다른 출처에서 온 자원에 제한을 거는 정책으로 XSS, CSRF 같은 요청이 난무하지 않게 막는 정책이다.
+
+ CORS
+ - Cross-Origin Resource Sharing
+ - SOP로 인한 제약사항을 조금 풀어주는 역할을 하며 다른 Origin임에도 리소스를 공유하도록 도와준다. CORS를 허용할 때 2가지 요청에 반응을 한다. 
+ - Simple Request : GET/HEAD/POST 같은 Method 요청, Content-Type 헤더 값이 text/plain, application/x-www-form-urlencoded 또는 multipart/form-data일때. 이 CORS가 사용될 경우 Origin이 헤더에 추가된다.
+ - Server는 요청된 Origin과 Access-Control-Allow-Origin 헤더에서 사용되는 Origin과 일치하는지 판별한후 다르면 즉시 연결 종료를 함.
+ - Non Simple Request : GET/HEAD/POST 가 아닌 Method 요청, Simple Request가 아닌 모든 것들
+ - 클라이언트 요청에는 Origin, Access-Control-Request-Method, 응답에는 Access-Control-Allow-Origin, Access-Control-Allow-Methods 헤더가 사용된다.
+
+ JSONP
+ - JSON with Padding
+ - Read만 할때 사용할 수 있다.
+
+ CSP
+ - Content Security Policy
+ - 웹 페이지에서 사용 가능한 자원의 위치, 출처에 제약을 주는 헤더 정책. XSS류 공격을 효과적으로 방어 가능하다.
+ - CSP는 directive - value 형식으로 구성되어 있고 종류도 여러가지 있다.
+ - ex) <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+
+ CSP Directive
+ - default-src : -src로 끝나는 모든 리소스 기본 동작 설정
+ - img-src : 이미지 로드 가능한 출처 설정
+ - script-src : js 태그 관련 권한과 출처 설정
+ - style-src : 스타일시트 관련 권한, 출처 설정
+ - child-src : 페이지 내 삽입된 프레임에 관련한 출처 설정
+ - base-uri : 페이지의 base 태그에 나타낼수 있는 url 설정
+ - object-uri : 위험한 플러그인 비활성화
+ - directive 와 짝지을수 있는 value는 여러가지 있다.
+
+ CSP Value
+ - self : Origin 안에서 로드하는 리소스만 허용
+ - unsafe-inline : 인라인 코드의 사용 허용
+ - unsafe-eval : eval과 같은 텍스트-js 변환 메커니즘 허용
+ - nonce-<base64-value> : 예외적 인라인 코드 허용
+
+
+7. 우회
+
+ CRLF Injection
+ - Header의 정보를 임의로 수정하는 우회 기법으로 CSP 라인을 CRLF를 삽입하여 Body로 내려보낸다.
+
+ Respone Header Modification
+ -  임의의 Status Code를 삽입하여 우회
+
+ JSONP callback
+ - JSONP는 XHR을 사용하지 않고 script 태그를 사용한다는 것을 이용하여 JS의 페이로드는 callback이라는 GET 매개변수를 통해 삽입하여 우회
+ - CSP가 특정 사이트를 가르킨다면 callback을 사용하고, CSP가 현재 출처만 로드하는 경우 object 태그를 사용해 우회
+
+ File upload
+ - JS 파일 업로드가 가능할 시 JS를 업로드 한뒤 다운로드 경로로 웹 페이지에 자원을 넣을 수 있다.
+ - ex) '"><script src="/uploads/csp.js"></script>
