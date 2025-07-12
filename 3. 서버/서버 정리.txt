@@ -7,15 +7,21 @@
 2. 서버종류
 
  HTTP
- - HyperText Trensfer Protocol - port:80 or 8080
+ - HyperText Trensfer Protocol
+
+ - TCP를 사용하고 포트 번호는 80, 8080을 사용한다. HTTPS의 경우는 443번을 사용한다.
  - 그냥 인터넷할때 쓰이는 프로토콜
 
  DHCP
- - Dynamic Host Configuration Protocol - port:67 or 68
- - 컴퓨터 4대 요소를 자동구성해줌
+ - Dynamic Host Configuration Protocol
+
+ - UDP를 사용하고 포트는 67, 68번을 사용한다.
+ - 해당 네트워크 기기에 IP, Subnet, Gateway, DNS를 자동으로 할당, 설정해준다.
 
  TFTP
- - Trivial File Transfer Protocol - port:69
+ - Trivial File Transfer Protocol
+
+ - port:69
  - ftp와 마찬가지로 파일전송 목적을 갖고 있지만 ftp보단 단순한 방식으로 파일을 전송한다
 
  DNS

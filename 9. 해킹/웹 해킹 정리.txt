@@ -11,5 +11,3 @@
  - parameter 
  - web page access
  - robots
- 
- - cors
