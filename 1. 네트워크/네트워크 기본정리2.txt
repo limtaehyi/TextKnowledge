@@ -81,7 +81,10 @@
 389 LDAP
 443 HTTP
 445 SMB
+514 Syslog
+587 SMTP
 3306 MySQL
+6379 Redis
  
 
 8. IP 헤더
