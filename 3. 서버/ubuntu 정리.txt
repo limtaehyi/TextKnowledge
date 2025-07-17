@@ -1,0 +1,189 @@
+1. /etc
+
+ adduser.conf
+ - 사용자 추가를 위한 명령어의 설정 파일
+ - DSHELL=/bin/bash : 기본 쉘
+ - DHOME=/home : 기본 홈 디렉토리 위치 설정
+ - FIRST, LAST : 기본 UID, GID 설정들
+ - USERGROUPS=yes : 기본 그룹
+ - DIR_MODE=0750 : 기본 권한
+ - NAME_REGEX, SYS_NAME_REGEX : 정규표현식에 맞는 이름인지 확인
+
+ /etc/profile, ~/.bash_profile, ~/.bashrc, /etc/bashrc
+ - 장치관리 및 사용자 환경설정을 위한 파일이다. 처음 리눅스를 부팅하고 바로 실행되는 login shell에 속한다.
+ - profile 파일들은 bash 쉘이 아니더라도 로그인시 적용되고 bashrc 파일들은 bash 쉘로 로그인 되었을 경우 적용된다.
+ - /etc/profile : 시스템 전역에 대한 환경설정 파일이며 로그인시 읽어들인다.
+ - ~/.bash_profile : 개인 사용자에 대한 환경설정 파일이다.
+ - /etc/bashrc : 시스템 전역에 대한 환경설정 파일이고 새로운 bash가 실행될때마다 읽어들임.
+ - ~/.bashrc : 개인 사용자에 대한 환경설정 파일이고 bash가 실행될때마다 내용을 읽어들인다.
+ - /etc/profile은 부팅후에 적용되고 ~/.bash_profile은 재로그인하거나 source 명령어로 바로 적용이 가능하다.
+ - 출처 : https://coding-chobo.tistory.com/72
+
+ cron.d, cron.daily, cron.hourly, cron.monthly, cron.weekly, cron.yearly, crontab
+ - 주기적인 프로그램 실행을 하기 위해 스크립트 형태로 넣어 놓는다.
+ - 맨 앞에서 부터 분, 시, 일, 월, 주, 사용자, 명령어 순서이다.
+
+ environment, environment.d
+ - 환경변수가 들어있는 파일
+
+ hostname
+ - 컴퓨터 고유 이름
+
+ hosts.allow, hosts.deny
+ - 특정 클라이언트에게만 서비스 허용 및 차단 설정 파일이다. allow를 통해 허용된 IP를 검사한후 deny를 통해 차단된 IP를 검사한다. 두 파일에 해당되지 않으면 기본적으로 접근 허용된다.
+ - [Service: IP] 로 작성하며 IP 부분에서는 subnet을 사용하여 네트워크 대역대를 설정 할 수도 있다.
+
+ locale.conf
+ - 사용언어, 인코딩
+
+ login.defs
+ - 로그인 관련 규칙 정의 파일
+ - LOG_OK_LOGINS no : 로그인 성공도 로그 기록
+ - SU_NAME su 
+ - ENV_SUPATH, ENV_PATH : 기본 환경변수
+ - UMASK 022 : 기본 umask
+ - HOME_MODE 0750
+ - PASS_MAX_DAYS 99999 : 비밀번호를 사용할 수 있는 최대 날짜
+ - PASS_MIN_DAYS 0 : 비밀번호를 사용해야 하는 최소 날짜 
+ - PASS_WARN_AGE 7 : 비밀번호 만료시 경고 날짜
+ - UID_MIN 1000 : 사용자 UID 최소값
+ - UID_MAX 60000 : 사용자 UID 최대값
+ - GID_MIN 1000 : 사용자 GID 최소값
+ - GID_MAX 60000 : 사용자 GID 최대값
+ - LOGIN_RETRIES 5 : 최대 로그인 시도
+ - LOGIN_TIMEOUT 60 : 로그인 대기시간
+ - DEFAULT_HOME yes : 로그인 성공시 사용자 홈으로 이동
+ - ENCRYPT_METHOD SHA512 : 리눅스 비밀번호 암호화 방식
+
+ logrotate.conf, logrotate.d
+ - 로그 압축 및 날짜 지정
+ - missingok
+ - monthly
+ - create 0664 root utmp
+ - minsize 1M
+ - rotate 1
+
+ os-release
+ - OS 버전
+
+ pam.conf, pam.d
+ - 보안 모듈이며 기본적인 구조는 module type, control flag, module name 및 module arguments
+ - module type
+ - auth : 사용자에게 비밀번호를 요청후 입력받은 정보가 맞는지 검사
+ - account : 명시된 계정이 현재 조건에서 유요한 인증 목표인지 검사, 계정에 대한 접근 통제 및 계정 정책 관리
+ - password : 사용자가 인증 정보를 변경할 수 있도록 비밀번호 갱신
+ - session : 인증을 받기 전,후 수행해야 할 일 정의
+ - control flag
+ - requisite : 인증 결과가 실패일 경우 인증 종료. 인증 성공일 경우 다음 모듈 실행, 실패일 경우 즉시 인증 실패 반환
+ - required : 인증 결과 관계없이 다음 인증 실행. 인증 성공일 경우 최종 인증 결과는 무조건 성공, 실패일 경우 무조건 실패
+ - sufficient : 인증 결과가 성공일 경우 인증 종료. 인증 성공일 경우 즉시 인증 성공 반환, 실패일 경우 다음 모듈 실행
+ - optional : 최종 인증 결과에 반영 안함. 단 다른 인증 모듈의 명확한 성공/실패가 없다면 이 모듈의 결과 반환
+ - include : 다른 PAM 호출
+ - module name
+ - pam_rootok : root 계정일 경우 추가 인증 없이 무조건 허용
+ - pam_wheel.so : su명령어 사용 인증에 사용되며 특정 그룹에 대한 인증 제어
+ - pam_succeed_if.so : 인수에 주어진 조건에 따라 인증 제어
+ - pam_securetty.so : root 계정일 경우에만 적용되는 모듈로 /etc/securetty 파일을 참고하여 해당 파일에 root가 있으면 특정 서비스에 대한 root 접근 허용
+ - module arguments
+ - debug : 시스템 로그 파일에 디버그 정보 기록
+ - no_warn : 모듈이 경고 메세지 안보냄
+ - Use_first_pass : 사용자에게 password 입력 요구하지 않도록 지정하는 인수로서 이전모듈에 입력 받은 password가 존재하지 않을 경우 인증 실패 반환
+ - try_first_pass : 이전 모듈에 입력받은 password로 인증 시도, 이전에 입력받은 password가 없을 경우 사용자에게 요구
+ - 출처 : https://www.igloo.co.kr/security-information/%EB%A6%AC%EB%88%85%EC%8A%A4-pam-%EB%AA%A8%EB%93%88%EC%9D%98-%EC%9D%B4%ED%95%B4/
+
+ passwd, passwd-
+ - passwd는 리눅스 계정 이름, 비밀번호, 홈 디렉토리, uid, gid 등 기록되어 있는 파일
+ - passwd ex) root : x : 0 : 0 : root : /root : /bin/bash
+ - 1번째는 계정 이름
+ - 2번째는 계정 암호, x로 표시되어 있으면 암호화된 비밀번호가 shadow 파일 안에 있다.
+ - 3번째는 UID로 0이면 root, 1000 이상은 일반 사용자이다.
+ - 4번째는 GID
+ - 5번째는 사용자 전체 이름 gecos
+ - 6번째는 홈 디렉토리
+ - 7번째는 기본 shell 정보
+
+ shadow, shadow-
+ - shadow는 비밀번호가 암호화 되어 있는 파일
+ - shadow ex) root : $6$aaa$x : 3 : 4 : 5 : 6 : 7 
+ - 1번째는 계정 이름
+ - 2번째는 $ 일고리즘ID $ salt $ 암호화된 패스워드 $ 순서이며 알고리즘 id 중 1은 MD5, 2는 BlowFish, 5은 SHA-256, 6은 SHA-512이다. salt는 암호화 하기 전에 넣은 랜덤값이며 마지막은 알고리즘과 salt로 암호화한 값이다.
+ - 3번째는 마지막 변경 날짜
+ - 4번째는 패스워드 최소 사용기간
+ - 5번째는 패스워드 최대 사용기간
+ - 6번째는 경고일수
+ - 7번째는 계정이 잠기기 전 비활성 일수
+ - 8번째는 만료일
+
+ resolv.conf
+ - DNS 서버 설정 파일
+
+ sudo.conf, sudoers, sudoers.d
+ - sudo 명령어 관련 설정 파일들이다. 
+ - sudo.conf는 sudo 명령어 자체의 내부 작동 방식을 구성한 파일로 sudo의 플러그인 및 디버그, 라이브러리 경로를 지정한 파일이다.
+ - sudoers는 사용자의 sudo 권한을 정의하며 사용자, 그룹별 명령어 실행 권한 및 암호화 요구 여부등을 정의해 놓은 파일이다.
+ - sudoers의 일반 계정은 , 일반 그룹은 계정 이름 앞에 %를 붙인다. 
+ - <username> ALL=(ALL) ALL
+ - sudoers에서 sudo 명령 사용시 비밀번호 입력이 필요 없도록 하려면 nopasswd를 넣는다.
+ - <username> ALL=(ALL) NOPASSWD:ALL
+
+ sysctl.conf
+ - kernel의 파라미트 값들을 조절하기 위한 유틸리티 정의 파일
+
+ timezone 
+ - 현재 pc의 timezone 파일
+
+ 
+2. SSH
+
+ openssh-server
+ - 우분투에서 사용하는 SSH 연결을 위한 패키지이며 ufw allow ssh 로 방화벽 허용을 해줘야 한다.
+
+ /etc/ssh/sshd_config
+ - ssh 접속 관련 설정 파일이다.
+ - Port 22 : 포트지정
+ - ListenAddress 0.0.0.0 : ssh 허용 IP
+ - HostKey : 암호화 키 지정
+ - PermitRootLogin prohibit-password : root로 ssh로 로그인 가능한지에 대한 지정. yes로 바꿀 수 있다.
+ - MaxAuthTries 6 : ssh 로그인 최대 시도 횟수
+ - MaxSessions 10 : 최대 연결 세션수
+ - AuthorizedKeyFile : 인증키
+ - PasswordAuthentication yes : 비밀번호 인증 여부
+ - PermitEmptyPasswords no : 비밀번호 빈칸 입력 가능 여부
+ - Banner none : 배너 설정
+
+
+3. xinetd
+
+ xinetd.d, xinetd.conf
+ - 슈퍼 대몬으로 네트워크 서비스 요청을 관리하고 필요에 따라 서비스 실행하는 역할. 클라이언트 요청이 있을 때만 서비스 실행 가능.
+ - xinetd.conf는 xinetd의 전역 설정 파일이며 슈퍼 데몬이 관리하는 모든 서비스에 적용되는 기본 설정들이 정의 되어 있음.
+ - xinetd.d에는 디렉토리이며 이 안에 서비스의 이름으로 새 파일을 생성하면 됨. 
+ - 주요 설정 항목들이 있으며 정보보안기사에 출제된 적이 있음
+ - service : 관리할 서비스 이름 지정.
+ - disable : 서비스 활성화 여부. yes or no
+ - socket_type : 서비스 소켓 유형. stream or dgram
+ - wait : 클라이언트 요청 처리 방식. yes는 한번에 하나의 요청만 처리하고 이전 요청 완료가 될 때까지 대기, no는 동시에 여러 클라이언트의 요청 처리
+ - user : 서비스가 실행될 사용자 권한 이름
+ - server : 서비스 실행 파일의 절대 경로
+ - server_args : 실행 파일에 전달할 인자
+ - flags : 
+ - cps : 초당 연결 요청수, 지정된 연결수 초과시 서비스 일시 중단
+ - instances : 동시에 서비스 할 수 있는 서버의 최대 개수
+ - per_source : 출발지 IP 주소 기준 최대 서비스 연결 개수
+ - only_from : 특정 IP주소 및 주소 대역의 접근 허용
+ - no_access : 특정 IP주소 및 주소 대역의 접근 차단
+ - access_times : 지정된 시간 범위 내에서만 접근 허용. 09:00-17:00
+ - log_on_failure : 서버 접속 실패 시 로그 파일에 기록할 내용 설정
+ - log_on_success : 서버 접속 성공 시 로그 파일에 기록할 내용 설정
+ - abc라는 서비스 예시 /etc/xinetd.d/abc ex)
+service abc
+{
+    disable = no
+    flags = REUSE
+    socket_type = stream
+    wait = no
+    user = root
+    server = /usr/sbin/in.abcd
+    log_on_failure += USERID
+    log_on_success += PID HOST DURATION
+}
