@@ -1,45 +1,119 @@
-1.부팅순서
+1. 알고리즘
+ - 욕심쟁이 : 매번 최선을 다하게 짜면 결과론적으로 최적의 결과가 나온다는 유형, 전체 방향성과 달리 결과값이 반드시 최적의 값은 아님
+ - 정복-분할 : 복잡하고 큰 문제를 원자까지 나누고 각각 세부 문제를 해결, 병합 정렬이나 거듭제곱
+ - 동적 : 특정 문제가 여러단계의 반복되는 부분 문제로 구성됐을 때 단계별 문제를 해결하고 이를 기반으로 전체 문제를 구해나감
+ - 백트래킹 : 전체 문제를 해결하기 위해 여러 후보의 해들 중 특정한 조건을 충족하는 해를 찾는 알고리즘, N-Queen
+ - 삽입, 선택, 버블, 셀은 n, n^2, n^1.5 중 하나
+ - 퀵, 힙, 병합은 nlog2n이고 퀵 worst만 n^2
+
+
+2. 인터페이스
+ - EAI : point-to-point, peer-to-peer, hub&spoke, messeging bus, hybrid
+ - ESB
+
+
+3. 윈도우 함수; OLAP
+ - 순위 함수 : rank, dense_rank, row_number
+ - 행 함수 : first_value, last_value, lag, lead
+
+
+4. 트랜잭션
+ - 원자성 (atomicity), 일관성 (consistency), 고립성 (isolation), 지속성 (durability)
+ - 트랜잭션 상태 : 활동, 부분완료, 완료, 실패, 철회
+
+
+5. 테이블
+ - 행, 레코드, 튜플, 카디나리티 (cardinality)
+ - 열, 속성, 필드, 차수 (degree)
+
+
+6. 시스템 카탈로그
+ - db관련 메타데이터 집합체
+ - syscolauth, syscolumns, systables, systabauth, sysview
+
+
+7. 연산자 우선순위
+ - 괄호, 단항, 이항, 조건, 대입순
+
+
+8. 스케쥴링
+ - 선점 : 라운드로빈, 다단계큐, 다단계 피드백큐, SRT (short remaining time)
+ - 비선점 : FCFS (first come first service), SJF (shortest job first), HRN (highest response ratio next; SJF를 개선 및 기아문제 해결, 응답률이 높은 프로세스 선택; 계산법은 {대기시간 + 서비스시간} / 서비스시간)
+ - 데드락 -> 은행가 알고리즘 (회피)
+
+9.부팅순서
  - post, cmos, mbr, ntloader, ntoskrnl(hal로드)
-2. hal
+
+
+10. HAL
  - LSM이 사용자 확인
  - SAM에 있는 사용자 정보 비교
  - SRM이 SID를 부여
  - sid 500이 관리자 501이 게스트 1000이상이 일반 사용자
-3. registry
+
+
+11. registry
  - current user 현재 로그인한
  - current config 하드웨어 프로파일
  - classes root 파일들의 확장자 규정 및 매칭 프로그램
  - local machine 하드웨어 설정 및 드라이브 
  - users 모든 사용자, 그룹 정보
-4. ssl
+
+
+12. ssl
  - 레헨리알 레코드, 헨드쉐이크, change cipher, alert
-5. 국내 암호개발
+
+
+13. 국내 암호개발
  - seed, hight, aria, lea
-6. icmp
- - 0 에코 응답
- - 1 목적지 도달 불가
- - 2 너무 큼
- - 3 시간 초과
- - 4 발신 억제
- - 5 재지정
+
+
+14. icmp
+ - 0 : 에코 응답
+ - 1 : 목적지 도달 불가
+ - 2 : 너무 큼
+ - 3 : 시간 초과
+ - 4 : 발신 억제
+ - 5 : 재지정
  - 8 에코요청
- - 9 라우터광고
- - 10 라우터 간청
- - 11 시간초과
-7. 블록
- - ECB 각각 암호화
- - CBC 두개 xor한걸 암호화를 ~ xor
- - CFB 키를 암호화 한걸 xor을 ~ 암호화
- - OFB 암호화 한걸 xor ~ 암호화
- - CTR 키를 1씩 증가한걸 암호화 한걸 xor
-8. udp 막기
+ - 9 : 라우터광고
+ - 10 : 라우터 간청
+ - 11 : 시간초과
+
+
+15. 블록
+ - ECB : 각각 암호화
+ - CBC : 두개 xor한걸 암호화를 ~ xor
+ - CFB : 키를 암호화 한걸 xor을 ~ 암호화
+ - OFB : 암호화 한걸 xor ~ 암호화
+ - CTR : 키를 1씩 증가한걸 암호화 한걸 xor
+
+
+16. udp 막기
  - 미발패애
  - 미사용, 발신자, 패킷임계, 애니캐스트
-9. 전자서명
+
+
+17. 전자서명
  - rsa 소인수
  - elgamal 이산대수
  - ecdsa 타원곡선
  - kcdsa 킴치
-10. IoT 4계층
+
+
+18. IoT 4계층
  - 감네서인
  - 감지, 네트워크, 서비스, 인터페이스
+
+
+부족한점
+ - 소프트웨어 재공학
+ - osi25000
+ - 테스트 단위
+ - 분산 db
+ - 릴레이션, 카디나리티, 디그리
+ - 연산자 순위
+ - 서비스 지향 아키텍처 soa
+ - 코코모
+ - 스파이스
+
