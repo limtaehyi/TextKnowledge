@@ -23,7 +23,7 @@
 
  SIEM
  - Security Information Event Management
- - 한개의 조직이나 회사에서 보안적 위협을 탐지하거나 분석 및 대응까지 할수 있는 서버이다.
+ - 한개의 조직이나 회사에서 보안적 위협을 탐지하거나 분석 및 대응까지 할수 있는 시스템이다.
 
  NAC
  - Network Access Control
