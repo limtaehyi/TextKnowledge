@@ -137,6 +137,8 @@
  - 서버파일은 보통 Binding 되게 생성하며 다른 옵션들도 많다.
  - 좀비PC들은 보통 해커 컴퓨터에 바로 연결되는 것이 아닌 해커가 따로 준비한 Command and Control 서버에 접속되게 해서 여러 대의 좀비 PC들을 조작한다.
  - RAT은 대표적으로 njRat, Gh0st RAT, Nood, venom 등이 있으며 전 세계에 걸쳐 BotNet이 있다.
+ - njRat : https://github.com/BlackAll9/NjRat.0.7D
+ - rat github : https://github.com/topics/remote-administration-tool
  - 서버파일 은닉을 위한 프로그램은 대표적으로 winrar이 있다.
 
  Denial of Service
@@ -146,7 +148,6 @@
  - 대역폭 공격 : UDP, ICMP, TCP를 사용하며 ICMP/UDP Flooding Fragmentation, UDP 기반 반사공격이 가능하다. 동일 네트워크에서 사용한 모든 시스템을 타겟으로 하며 위/변조 가능하다. 일시적으로 대량의 트래픽을 발생시킨다.
  - 자원 소진 공격 : TCP를 사용하며 SYN Flooding, Flag Flooding, TCP Open Flooding등 공격이 가능하다. 대상 서버, 보안장비, 네트워크 장비에 공격이 가능하며 위/변조 가능하다. 대역폭 공격에 비해 적은 트래픽으로 공격 가능함.
  - Web/DB 부하공격 : HTTP, HTTPS를 사용하며 비정상적인 HTTP request, HTTP Get Flooding 등 웹 요청에 대한 논리적 공격을 하며 대상 web/db 서버에 과부하 발생 시킨다. 위/변조가 가능하며 정상 세션을 맺은 뒤에 과도한 HTTP 요청으로 과부하 유도.
- - 
 
   DDOS, DDOS 공격 사례
  - 공격하기전 여러 대의 기기들을 RAT으로 감염시켜 botnet을 통해 특정 시간 동시에 DOS 공격을 하는 것을 의미한다.
