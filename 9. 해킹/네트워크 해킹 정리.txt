@@ -88,7 +88,10 @@
 
  Switch Jamming
  - 스위치의 mac 주소 테이블을 가득 채우면 네트워크 세그먼트를 브로드 캐스트하는 것을 이용한다.
- - 툴은 네트워크 분석, 공격인 dsniff, mac 주소 오버플로우인 macof
+ - 툴은 네트워크 분석, 공격 dsniff, mac 주소 오버플로우 macof, CLF를 이용하여 http 가로채는 urlsnarf
+ - macof -s <source_ip> -d <destination_ip> -e <dst_hw> -x <src_port> -y <dst_port> -i <interface>
+ - ex) macof -d 192.168.0.1 -i eth0
+ - urlsnarf -i <interface> -p <pcap_file> -v <reg_pattern>
 
  ARP Spoofing
  - 같은 대역대에서 서버와 클라이언트의 mac주소를 공격자의 mac주소로 속인다.
@@ -98,11 +101,7 @@
  - 대응법으로는 ARP cache table을 정적으로 구성하거나 SSL 방식으로 중요 정보는 암호화 한다.
  - 툴은 TCP/IP 단편화, 변조, 네트워크장비 우회의 fragroute, 직접적인 공격인 arpspoof
  - fragroute : 옵션은 B1부터 B4까지 있으며 패킷을 나누는데 B4는 최대 크기로 나누는 것이다.
- - arpspoof
- - i [interfaces] : 공격자가 사용할 네트워크 인터페이스 이름
- - t [target_ip] : 타겟
- - r [gateway_ip] : 게이트웨이
- - c 
+ - arpspoof -i <interface> -t <dest_ip> -r <gw_ip> -c 
  - ex) arpspoof -i eth0 -t 192.168.0.1(gateway) 192.168.0.2(victim)
 
  ARP Redirect
