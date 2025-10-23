@@ -1,0 +1,207 @@
+/etc/passwd
+/etc/shadow
+/var/run/utmp, /var/log/wtmp, /var/log/btmp
+3 way handshake
+4 way handshake
+ALU
+AX, BX, CX, DX...
+AH, BH, CH, DH...
+AL, BL, CL, DL...
+Administrators, Users, Guests, Backup Operators, Power Users
+ASLR
+APT
+ACL
+ARP, RARP
+Apache security
+ARO, SLE, ALE
+Batch, Multi, Time share, Real-time
+Bitlocker, EFS, ADS
+BOF
+Backdoor
+Bell-Lapadula model
+Biba model
+BCP
+CPU
+Control Unit
+Cache mem
+Context switch
+cron
+C$, ADMIN$, IPC$
+Cookie
+CSMA/CD, CA
+Cache Control attack
+CVE, CWE, CVSS
+CSRF
+Clark and Wilson model
+Chinese Wall model
+CC 인증
+Direct, associate mapping
+Dispatch, Blocked, Wake up
+DeadLock
+DeadLock 발생조건, 예방조건, 해결방안
+DDOS
+DRDOS
+DNS
+DB
+DBD
+DRM
+Digital forensic
+Diffie-Hellman Key Ex
+Disaster(재해)
+DRP, BIA
+EAX, EBX, ECX, EDX, EBP, ESP, EIP...
+Event Log
+ESM, SIEM
+ebXML
+ECB, CBC, CFB, OFB, CTR
+FIFO, LFU, LRU
+FCFS, SJF, Round Robin
+FCFS, SSTF, SCAN, C-SCAN
+File System
+fdisk, mkfs, fsck, mount, fstab, umount
+find
+FAT, NTFS
+FTP
+FW
+File upload, File download
+FSB
+GRUB
+GDPR
+HAL, Micro Kernel, Process Manager, Local Procedure Call, Virtual mem manager, POSIX, security sub sys
+Hive File
+HTTP
+HTTP request, response Header
+HTTP Get Flooding
+Hash Dos
+Hulk Dos
+Honeypot
+Hash
+inode
+iptables
+IP Header
+ICMP
+ICMP Flooding
+IDS, IPS, UTM
+IPSEC
+ISMS, ISMS-P
+ISMS-P 인증심사원
+ISO 27000
+john the ripper, hashcat
+keylogger
+Kerberos
+linux root directory
+lsattr, chattr
+LAN, WAN, MAN
+Land attack
+logic bomb
+Mutual, Semaphore
+MBR, VBR, MFT
+MAC, DAC, RBAC
+MITM
+Network Topology
+NAC
+Oauth, DDE
+OSI 7layer
+OTP
+OWASP
+OSi
+OECD 프라이버시 8원칙
+Program Counter, Memory Address Register, Memory Buffer Register, Instruction Register
+page, segment manage
+Process, Thread
+PCB
+PE structure
+Ping of death
+Port Scanning
+PPTP, L2TP
+PGP, PEM, S/MIME
+PKI
+Register
+RAX, RBX, RCX, RDX, RBP, RSP, RIP...
+RDI, RSI, RDX, RCX, R8, R9...
+RAID
+Run level
+Redirection, Pipe
+Registry
+Race Condition
+Routing
+RFID
+Rootkit
+ransomware
+RSA, ElGamal, Schnorr, KCDSA, ECC
+RPO, RTO, RP, MTD, SDO
+setuid, setgid, sticky bit
+syslog
+Shellcode, Heap Spray
+SMTP
+SNMP, NMS
+Subnetting
+Slow HTTP POST Flooding
+Slow HTTP GET Flooding
+Slow HTTP Read Dos
+Slow HTTP Header Dos (slowloris)
+Sniffing
+Session Hijacking
+Spoofing
+Screening Router, Bastion Host, Dual-homed Host, Screened Host, Screened Subnet
+Snort, Suricata
+sendmail
+Spam mail
+SET
+SSL, SSLhandshake
+sHTTP
+SQLi
+SSO
+tripwire, lsof
+TCP/IP
+TCP, UDP
+TCP SYN Flooding
+Tear Drop
+Trojan
+TCSEC, Orange-Book
+Unix, Linux
+umask, chown, chmod, chgrp
+Users, Account Operators, Printer Operators, Server Operators
+Unicast, Broadcast, Multicast, Anycast
+UDP Flooding
+Virtual mem
+Virus
+VPN, SSLVPN
+WORM storage
+w, who, last, lastb
+Winlogon, GINA(msgina.dll), LSA(lsass.exe), SAM, SRM
+wininit.exe, services.exe, lsm.exe, lsass.exe, svchost.exe, conhost.exe
+web artifact
+WEP, WPA, aircrack-ng
+Web logs
+WAF
+Watering hole
+Watermarking
+xmm0 ~ xmm7
+XSS
+XXEi
+가명처리
+개인정보보호법 제1~6조, 제15~37조
+고전 암호
+공개키 암호
+단방향, 반이중, 전이중
+대칭키 암호
+데이터, 주소, 제어 BUS
+망분리
+사용자 인증 방식
+선점, 비선점 스케줄 점유
+스트림, 블록 암호
+암호화가 해독되는 이유
+암호분석 방법, 종류
+위험, 위협, 취약점, 자산
+위험대응 전략
+재해 복구 시스템 종류
+전자서명
+전자투표
+접근통제
+접근 방식에 따른 위험 분석 기법
+정보보호 3원칙
+정보보호 대책
+정량, 정석적 위험 분석
+회선, 패킷교환
+휘발성, 비휘발성 데이터
