@@ -1,6 +1,10 @@
 /etc/passwd
 /etc/shadow
+/etc/login.defs
 /var/run/utmp, /var/log/wtmp, /var/log/btmp
+/etc/xinetd.conf
+/var/log/messages
+/etc/mail/access
 3 way handshake
 4 way handshake
 ALU
@@ -28,6 +32,7 @@ Context switch
 cron
 C$, ADMIN$, IPC$
 Cookie
+Cookie 보안 옵션
 CSMA/CD, CA
 Cache Control attack
 CVE, CWE, CVSS
@@ -42,6 +47,7 @@ DeadLock 발생조건, 예방조건, 해결방안
 DDOS
 DRDOS
 DNS
+DNS Zone
 DB
 DBD
 DRM
@@ -49,33 +55,43 @@ Digital forensic
 Diffie-Hellman Key Ex
 Disaster(재해)
 DRP, BIA
+Directory Listing, Traveling
+DB 암호화 기법
+DLP
+DoA
 EAX, EBX, ECX, EDX, EBP, ESP, EIP...
 Event Log
 ESM, SIEM
 ebXML
 ECB, CBC, CFB, OFB, CTR
+ESM
 FIFO, LFU, LRU
 FCFS, SJF, Round Robin
 FCFS, SSTF, SCAN, C-SCAN
 File System
 fdisk, mkfs, fsck, mount, fstab, umount
-find
+Find
+False Positive, False Negative
 FAT, NTFS
 FTP
 FW
 File upload, File download
 FSB
+Fuzzing
 GRUB
 GDPR
 HAL, Micro Kernel, Process Manager, Local Procedure Call, Virtual mem manager, POSIX, security sub sys
 Hive File
 HTTP
 HTTP request, response Header
+HTTP request smuggling
 HTTP Get Flooding
 Hash Dos
 Hulk Dos
 Honeypot
 Hash
+HeartBeat, HeartBleed
+hping
 inode
 iptables
 IP Header
@@ -86,25 +102,30 @@ IPSEC
 ISMS, ISMS-P
 ISMS-P 인증심사원
 ISO 27000
-john the ripper, hashcat
-keylogger
+IKE
+ISO 13335-1
+John the ripper, hashcat
+Keylogger
 Kerberos
-linux root directory
+Linux root directory
 lsattr, chattr
 LAN, WAN, MAN
 Land attack
-logic bomb
+Logic bomb
+LAN 스위칭 기법
 Mutual, Semaphore
 MBR, VBR, MFT
 MAC, DAC, RBAC
 MITM
 Network Topology
 NAC
+Nimda
+Nmap
 Oauth, DDE
 OSI 7layer
 OTP
 OWASP
-OSi
+OS injection
 OECD 프라이버시 8원칙
 Program Counter, Memory Address Register, Memory Buffer Register, Instruction Register
 page, segment manage
@@ -113,9 +134,12 @@ PCB
 PE structure
 Ping of death
 Port Scanning
+Port Mirroring
 PPTP, L2TP
 PGP, PEM, S/MIME
 PKI
+php.ini
+PAM
 Register
 RAX, RBX, RCX, RDX, RBP, RSP, RIP...
 RDI, RSI, RDX, RCX, R8, R9...
@@ -130,6 +154,7 @@ Rootkit
 ransomware
 RSA, ElGamal, Schnorr, KCDSA, ECC
 RPO, RTO, RP, MTD, SDO
+robots.txt
 setuid, setgid, sticky bit
 syslog
 Shellcode, Heap Spray
@@ -152,21 +177,33 @@ SSL, SSLhandshake
 sHTTP
 SQLi
 SSO
-tripwire, lsof
+Steganography
+Smurf
+ServerTokens
+Stuxnet
+Secure coding
+SOAR
+Static VLAN, Dynamic VLAN
+Tripwire, Nessus
 TCP/IP
 TCP, UDP
 TCP SYN Flooding
 Tear Drop
 Trojan
 TCSEC, Orange-Book
+Trinoo
+TCP Wrapper
+Tempest
 Unix, Linux
 umask, chown, chmod, chgrp
 Users, Account Operators, Printer Operators, Server Operators
 Unicast, Broadcast, Multicast, Anycast
 UDP Flooding
+ufsrestore
 Virtual mem
 Virus
 VPN, SSLVPN
+VTP
 WORM storage
 w, who, last, lastb
 Winlogon, GINA(msgina.dll), LSA(lsass.exe), SAM, SRM
@@ -177,11 +214,19 @@ Web logs
 WAF
 Watering hole
 Watermarking
+WTLS
+White list, Black list
+Web Proxy
+WinServ 로그파일
 xmm0 ~ xmm7
 XSS
 XXEi
+XML 구성요소
+Zero day
 가명처리
 개인정보보호법 제1~6조, 제15~37조
+개인정보영향평가 수행안내서
+개인정보 처리 시스템의 접근권한 관리, 접근통제 안정성 확보 관리
 고전 암호
 공개키 암호
 단방향, 반이중, 전이중
@@ -193,8 +238,10 @@ XXEi
 스트림, 블록 암호
 암호화가 해독되는 이유
 암호분석 방법, 종류
+오용, 이상 탐지
 위험, 위협, 취약점, 자산
 위험대응 전략
+이중서명
 재해 복구 시스템 종류
 전자서명
 전자투표
@@ -203,5 +250,6 @@ XXEi
 정보보호 3원칙
 정보보호 대책
 정량, 정석적 위험 분석
+정보통신망법
 회선, 패킷교환
 휘발성, 비휘발성 데이터
