@@ -11,6 +11,7 @@ ALU
 AX, BX, CX, DX...
 AH, BH, CH, DH...
 AL, BL, CL, DL...
+Active content attack
 Administrators, Users, Guests, Backup Operators, Power Users
 ASLR
 APT
@@ -18,6 +19,7 @@ ACL
 ARP, RARP
 Apache security
 ARO, SLE, ALE
+Anonymous ftp attack
 Batch, Multi, Time share, Real-time
 Bitlocker, EFS, ADS
 BOF
@@ -25,6 +27,7 @@ Backdoor
 Bell-Lapadula model
 Biba model
 BCP
+Bonk, Boink attack
 CPU
 Control Unit
 Cache mem
@@ -39,9 +42,12 @@ CVE, CWE, CVSS
 CSRF
 Clark and Wilson model
 Chinese Wall model
+Credential stuffing
 CC 인증
+COA, KPA, CPA, CCA attack
 Direct, associate mapping
 Dispatch, Blocked, Wake up
+Domain shadowing
 DeadLock
 DeadLock 발생조건, 예방조건, 해결방안
 DDOS
@@ -78,6 +84,7 @@ FW
 File upload, File download
 FSB
 Fuzzing
+FTP Bounce attack
 GRUB
 GDPR
 HAL, Micro Kernel, Process Manager, Local Procedure Call, Virtual mem manager, POSIX, security sub sys
@@ -104,6 +111,7 @@ ISMS-P 인증심사원
 ISO 27000
 IKE
 ISO 13335-1
+ipconfig, ifconfig
 John the ripper, hashcat
 Keylogger
 Kerberos
@@ -115,12 +123,14 @@ Logic bomb
 LAN 스위칭 기법
 Mutual, Semaphore
 MBR, VBR, MFT
-MAC, DAC, RBAC
+MAC, DAC, RBAC, MLS
 MITM
 Network Topology
 NAC
 Nimda
 Nmap
+Netcat
+Netstat
 Oauth, DDE
 OSI 7layer
 OTP
@@ -128,15 +138,17 @@ OWASP
 OS injection
 OECD 프라이버시 8원칙
 Program Counter, Memory Address Register, Memory Buffer Register, Instruction Register
-page, segment manage
+Paging, Segmentation mem manage
 Process, Thread
 PCB
+POODLE attack
 PE structure
 Ping of death
 Port Scanning
 Port Mirroring
 PPTP, L2TP
 PGP, PEM, S/MIME
+Pass the hash
 PKI
 php.ini
 PAM
@@ -184,16 +196,23 @@ Stuxnet
 Secure coding
 SOAR
 Static VLAN, Dynamic VLAN
+Side channel attack
+Security PDCA
+Subdomain hijacking
+Salami attack
+SSDP DRDOS attack
+Switch jamming
 Tripwire, Nessus
 TCP/IP
 TCP, UDP
 TCP SYN Flooding
-Tear Drop
+Teardrop attack
 Trojan
 TCSEC, Orange-Book
 Trinoo
 TCP Wrapper
 Tempest
+TFTP attack
 Unix, Linux
 umask, chown, chmod, chgrp
 Users, Account Operators, Printer Operators, Server Operators
