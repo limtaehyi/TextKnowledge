@@ -32,7 +32,7 @@ CPU
 Control Unit
 Cache mem
 Context switch
-cron
+Cron, Crontab
 C$, ADMIN$, IPC$
 Cookie
 Cookie 보안 옵션
@@ -137,7 +137,7 @@ OTP
 OWASP
 OS injection
 OECD 프라이버시 8원칙
-Program Counter, Memory Address Register, Memory Buffer Register, Instruction Register
+PC, MAR, MBR, IR
 Paging, Segmentation mem manage
 Process, Thread
 PCB
@@ -163,7 +163,7 @@ Race Condition
 Routing
 RFID
 Rootkit
-ransomware
+Ransomware
 RSA, ElGamal, Schnorr, KCDSA, ECC
 RPO, RTO, RP, MTD, SDO
 robots.txt
@@ -180,9 +180,8 @@ Slow HTTP Header Dos (slowloris)
 Sniffing
 Session Hijacking
 Spoofing
-Screening Router, Bastion Host, Dual-homed Host, Screened Host, Screened Subnet
 Snort, Suricata
-sendmail
+Sendmail
 Spam mail
 SET
 SSL, SSLhandshake
@@ -226,7 +225,7 @@ VTP
 WORM storage
 w, who, last, lastb
 Winlogon, GINA(msgina.dll), LSA(lsass.exe), SAM, SRM
-wininit.exe, services.exe, lsm.exe, lsass.exe, svchost.exe, conhost.exe
+wininit, services, lsm, lsass, svchost, conhost
 web artifact
 WEP, WPA, aircrack-ng
 Web logs
@@ -261,6 +260,7 @@ Zero day
 위험, 위협, 취약점, 자산
 위험대응 전략
 이중서명
+방화벽 구축 위치 종류
 재해 복구 시스템 종류
 전자서명
 전자투표
