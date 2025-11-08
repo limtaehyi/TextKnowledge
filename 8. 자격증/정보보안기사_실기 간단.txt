@@ -1,0 +1,210 @@
+보호대책
+ - 기물관 (리적 보호대책
+
+통제
+ - 예탐교접 (통제
+
+정보보호 목표
+ - 기무가용인책
+
+암호학 주요 목적
+ - 기무인부
+
+암호문 공격 유형
+ - 암호단독, 알려진 평문, 선택 평, 선택 암
+
+블록암호 공격 유형
+ - 차선전수통 (분석
+
+대칭키 암호를 이용한 암호화
+ - ECB CBC CFB, OFB, CTR
+
+RSA - 소인수분해
+ElGamal - 이산대수
+ECC - 타원곡선
+
+해시 특징
+ - 역저 두역저 충저 충회 약일 강일
+
+해시 조건
+ - 압일효충
+
+전자서명 조건
+ - 위서부변재
+
+특수 서명
+ - 부인방지, 의뢰 부인방지, 수신자, 은닉, 위임, 다중, 이중
+
+인증서
+ - PAA, PCA, CA, RA, CRL, OCSP
+
+인증 유형
+ - 지식, 소유, 존재, 위치
+
+Kerberos 구성
+ - KDC, AS, TGS, TGT
+
+접근통제 보안모델
+ - MAC, DAC, RBAC & bell-lapadula, biba, chinese wall, clark-wilson
+
+패스워드 공격
+ - dict, brute f, rainbow t
+
+거리벡터
+ - RIP, RIPv2
+
+링크상태
+ - OSPF, IGRP, EIGRP
+
+IPv4->IPv6 변환
+ - 이중스택, 터널링, 헤더변환
+
+IPSEC 기능
+ - 기무인재접
+
+네트워크 관리 프로토콜
+ - NMP, SNMP
+
+스위치 종류
+ - L2,3,4~7
+
+IEEE 802.11 - 최초 무선랜
+11b - WEP 구현, 2.4GHz
+11a - 11b 호환 안됨, 5GHz
+11g - b호환, 속도 향상
+11i - b에 보안성강화
+11n - 최대 600Mbps
+
+802.3 - 이더넷
+802.11 - 와이파이
+802.1x - 포트
+
+무선랜 보안, 인증
+ - PSK, EAP, WEP, WPA, WPA2
+
+FW 구축 종류
+ - 스크린드 라, 베스쳔 호, 듀얼 홈드 게, 스크린드 호, 스크린드 서
+
+Snort action
+ - al, log, pass, act, dyna, drop, reject, sdrop
+
+Snort body
+ - msg, cont, nocase, offset, depth, distance, flow, threshold
+
+iptables filter
+ - filter, nat, mangle
+
+iptables chain
+ - input, output, forward
+
+iptables rule
+ - -p, --syn, -s, -d, --sport, --dport, --name, --hitcount, --update, -m
+
+iptables -j
+ - accept, drop, reject, log
+
+vpn
+ - L2F, PPTP, L2TP
+
+port scan
+ - tcp open, syn, fin, null, xmas, ack scan & udp scan
+
+DOS 주요 공격
+ - smurf, land, slow http post|header, syn flooding, connection flooding, UDP/ICMP, HTTP flood, ssdp drdos, hash, slow read, bonk, boink, ping of death, teardrop
+
+SSL, TLS
+ - 0-RTT, DTLS, POODLE, heartbleed, heartbeat
+
+HTTP 메소드
+ - get, post, options, delete, put
+
+Cookie
+ - 이름, 값, 도메인, 경로, 제한기간, 크기, httponly, secure
+
+Mail
+ - SMTP, POP3, IMAP, SPF, DKIM, DMARC, PEM, PGP, S/MIME
+
+SQLi
+ - union, error, time, blind, prepared statement
+
+기타 공격
+ - pass the hash, credential stuff, domain shadowing, sess hijack, subdomain hijack, salami, dde inject
+
+DB keys
+ - super, candidate, primary, alternate, foreign
+
+DB 보안 제어
+ - 흐추접
+
+웹서비스
+ - soap, uddi, wsdl
+
+xml 기반 보안기술
+ - xkms, smal, xacml
+
+포렌식 5원칙
+ - 무신정재연
+
+정보보호 관리체계
+ - iso 27000, 001, 002, 003, 004, 005
+
+정보보호 정책 구현요소
+ - 표기지절
+
+isms 관리 과정
+ - 정범위구사
+
+라이프사이클
+ - PDCA
+
+관리체계 요구사항
+ - 기위운점
+
+보호대책 요구사항
+ - 정책|조직|자산 관리, 인적, 외부자, 물리, 인증|권한, 접근통제, 암호화, 정보시스템 도입|개발, 시스템|서비스 운영|보안, 사고예방, 재해복구
+
+기관
+ - 정책 : 과기부, 개정위
+ - 인증 : kisa, 금보원
+
+위험관리 절차
+ - 자산식별, 위험분석, 위험평가, 정보보호대책수립, 계획수립, 주기적 검토
+
+위험관리 용어
+ - 자산 중요도 평가, 취약점, 위협, 우려사항, 위험, DoA, SLE, ARO, ALE, ROI
+
+정량적 위험분석
+ - 과거, 수학, 확률, 점수
+
+정성적 위험분석
+ - 델파이, 시나리오, 순위
+
+위험평가
+ - 수용, 전가, 감소, 회피
+
+업무연속 단계
+ - 범위설정 기획, 사업영향평가, 복구 전략, 복구 계획, 수행 테스트|유지보수
+
+재난복구계획
+ - 미러, 핫, 웜, 콜드, RPO, RTO, RP, MTD
+
+정보보호제품 인증
+ - TESEC, ITSEC, CC(pp, st, toe, eal), CTCPEC
+
+사이버 위협정보
+ - 정상, 관심, 주의, 경계, 심각
+
+정보보안 거버넌스 절차
+ - 통제환경, 위험평가, 통제활동, 정보|의사소통, 실행계획
+
+법령
+ - 개인정보보호법 : 개정위
+ - 정보통신망 이용, 위치정보 보호 : 방통위
+ - 정보통신기반 보호, 전자서명, 클라우드 컴퓨팅 : 과기부
+ - 신용정보 : 금융위
+ - 전자정부 : 행안부
+
+개인정보보호법
+ - 1~5조 : 목적, 정의, 원칙, 권리, 국가의무, 타법
+ - 15~25조 : 정보수집, 최소수집, 3자제공 및 이용, 3자제공 및 이용 예외, 제공받은자의 제공금지, 출처통지, 파기, 동의얻는법(아동정보 동의얻는법), 민감정보, 고유식별(주민등록번호), 고정형 영상정보처리기기(이동형 영상정보처리기기)
+ - 26~28조: 업무위탁, 영업양도, 개인정보취급자 감독
