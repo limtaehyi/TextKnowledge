@@ -201,6 +201,7 @@ Subdomain hijacking
 Salami attack
 SSDP DRDOS attack
 Switch jamming
+Stacheldraht
 Tripwire, Nessus
 TCP/IP
 TCP, UDP
@@ -251,6 +252,7 @@ Zero day
 대칭키 암호
 데이터, 주소, 제어 BUS
 망분리
+방화벽 구축 위치 종류
 사용자 인증 방식
 선점, 비선점 스케줄 점유
 스트림, 블록 암호
@@ -260,7 +262,6 @@ Zero day
 위험, 위협, 취약점, 자산
 위험대응 전략
 이중서명
-방화벽 구축 위치 종류
 재해 복구 시스템 종류
 전자서명
 전자투표
