@@ -1,0 +1,65 @@
+1. CTF
+ - dreamhack
+ - webhacking.kr
+ - pwnable.kr
+ - h4ckingga.me
+ - hackerschool ftz
+ - tryhackme
+ - lord of sqlinjection
+ - xss game
+ - reversing.kr
+ - hack the box
+
+2. 정보 및 공부
+ - exploit-db
+ - 레드팀.com
+ - theori blog
+ - ssv
+ - open src learning community
+
+3. 법 및 포렌식
+ - 개인정보보호법
+ - 개인정보보호법 시행령
+ - 정보통신망법
+ - linux syscall
+ - 각급 기관의 영상정보처리기기 설치, 운영지침
+ - 통신비밀보호법
+ - (경찰청) 디지털 증거의 처리 등에 관한 규칙
+ - (대검) 디지털 증거의 수집, 분석 및 관리 규정
+ - 디지털포렌식 까마귀
+
+4. OSINT 및 Online tools
+ - cyberchef
+ - Eric Zimmerman's tools
+ - 히마와리 실시간 웹
+ - cve.org
+ - iknowwhatyoudownload
+ - shodan.io
+ - dreamhack tools
+ - whatcms
+ - crt.sh
+ - geolocation.com
+ - builtwith
+ - virus total
+ - defuse.ca (assembler, disassambler)
+ - blockchain-academy (endian converter)
+ - joesandbox cloud (virus sandbox)
+ - unixtimestamp (unix timestamp convert)
+ - epochconverter (webkit/chrome timestamp converter)
+ - programiz.com/php (online php)
+ - checkserp (ascii converter)
+ - online-python
+ - regex101 (regular expression syntax)
+ - online-barcode-reader
+ - aperisolve (online png analyzer)
+ - viewdns.info
+
+5. forum
+ - hackforums.net
+ - cracking.org
+ - hackerone hacktivity
+ - reddit r/hacking
+
+6. etc
+ - 내 youtube 채널 구독 날짜
+ - myinstants
