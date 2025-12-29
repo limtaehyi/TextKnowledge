@@ -26,6 +26,8 @@
  - wfuzz - 웹 퍼징 도구
  - ysoserial - Java 직/역직렬화 취약점 개념 증명 도구
  - ZAP - 웹 스캔, 프록시, 해킹
+ - caido - 웹 취약점 스캔 자동화 도구
+ - metasploit
 
 
 4. 시스템
@@ -75,6 +77,7 @@
  - winsearchDBanalyzer - 윈도우 Search 분석
  - jd-gui - jar파일 분석
  - jadx - apk 디컴파일
+ - cuckoo sandbox - 악성코드 샌드박스
 
 
 8. 리버싱
@@ -93,6 +96,7 @@
  - ftk imager - 디스크 이미징
  - regcool - 레지스트리 편집기
  - santoku - 모바일 포렌식 전용 OS
+ - encase
 
 
 A. 라이브러리
@@ -106,3 +110,5 @@ B. 기타
  - GNS3 - VM 토폴로지
  - Redisinsight - Windows GUI Redis
  - thunderbird - 메일
+ - Sans window_forensic_analysis_poster - 포렌식 참고자료
+ - windows-forensic-artifacts - 윈도우 포렌식 참고자료
