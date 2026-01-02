@@ -156,6 +156,7 @@
  - Tribed Flood Network 공격 : 트리누의 발전 형태로 TCP SYN Flood, smurf 추가 기능
  - Stacheldraht 공격 : 마스터 시스템 및 에이전트 데몬과의 사이 암호화 통신
  - TFN2K 공격 : TFN의 발전된 형태로 암호화 지원, UDP/TCP/IMCP 복합 사용, TCP 포트에 백도어 실행 가능
+ - Rapid Reset : HTTP2의 RST_STREAM 패킷을 이용한 공격
 
  DRDOS
  - 분산반사공격으로 DNS, NTP, SNMP 서나 다른 응답이 가능한 서버에 피해자의 IP로 위장해 패킷들을 보내면 그 서버들이 피해자에게 패킷을 보내서 반사공격이라고 한다.

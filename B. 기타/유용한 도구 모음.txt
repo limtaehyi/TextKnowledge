@@ -33,6 +33,8 @@
 4. 시스템
  - nessus - 시스템 보안 취약점 스캔
  - nikto - 웹 서버 취약점
+ - Valgrind - 메모리 디버깅
+ - AddressSanitizer - 런타임 메모리 오류 검사
 
 
 5. 자료수집
@@ -78,6 +80,7 @@
  - jd-gui - jar파일 분석
  - jadx - apk 디컴파일
  - cuckoo sandbox - 악성코드 샌드박스
+ - db browser for sqlite
 
 
 8. 리버싱
@@ -88,6 +91,7 @@
  - peid, petools, peview
  - pwndbg
  - x32, x64 - 윈도우용 디버거
+ - one_gadget - david942j의 oneshot gadget
 
 
 9. 포렌식
@@ -97,6 +101,8 @@
  - regcool - 레지스트리 편집기
  - santoku - 모바일 포렌식 전용 OS
  - encase
+ - analyzeMFT - mft 데이터 추출
+ - imhex
 
 
 A. 라이브러리
