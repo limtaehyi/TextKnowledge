@@ -1,4 +1,4 @@
-## 1. Flask  
+## 0. Flask  
 &nbsp;설명
 - 파이썬 기반으로 만드는 웹서버이며 간결한 코드로도 백엔드를 구현 할 수 있다. 보통 Model Template View 패턴을 채용하고 있다.
 - django와는 다르게 초기 세팅을 해주는 코드가 없을 뿐더러 기초적인 구현(디렉토리, 파일 자동 생성 및 정의)이 아무것도 안되어있으므로 디렉토리나 파일을 일일이 만들고 설계를 해야한다.
@@ -35,7 +35,7 @@
 <br>
 <br>
 
-## 2. 요구사항  
+## 1. 요구사항  
 &nbsp;DNS
 - aws에서 Route53으로 원하는 도메인을 사놓고 레코드에 서버의 ip들을 넣어 놓는다.
 
@@ -61,7 +61,7 @@ pip install -y schedule Flask-Migrate flask-cors flask-wtf flask-limiter
 <br>
 <br>
 
-## 3. 가상화  
+## 2. 가상화  
 &nbsp;Ubuntu
 
 ```
@@ -75,7 +75,7 @@ myproject/bin/deactivate
 <br>
 <br>
 
-## 4. 초기 파일  
+## 3. 초기 파일  
 &nbsp;\_\_init\_\_.py
 - view정의, db 설정
 
@@ -100,7 +100,7 @@ myproject/bin/deactivate
 <br>
 <br>
 
-## 5. wsgi  
+## 4. wsgi  
 &nbsp;웹서버
 - 파이썬은 고질적인 문제인 multi thread를 해결하기 위해 apache2와 연동하는 wsgi를 이용한다.
 - /home/ubuntu/myproject/saver/saver.wsgi
@@ -135,7 +135,7 @@ AllowOverride None
 <br>
 <br>
 
-## 6. DB   
+## 5. DB   
 &nbsp;DB 조작
 - flask db init : db초기 생성
 - flask db migrate : models.py의 변경된 클래스 감지 및 적용 시킬 임시 파일 생성
@@ -144,7 +144,7 @@ AllowOverride None
 <br>
 <br>
 
-## 7. HTTPS  
+## 6. HTTPS  
 &nbsp;SSL
 - apt install letsencrypt로 ssl 인증서 설정이지만 http로 웹연결이 되어있어야 이 letsencrypt가 확인을 하고 인증서를 써준다.
 - letsencrypt certonly --webroot --webroot-path=/var/www/html -d extextcloud.com
@@ -211,7 +211,7 @@ CustomLog ${APACHE_LOG_DIR}/flask_app_access.log combined
 <br>
 <br>
 
-## 8. 초기 설정, 유지, 보수  
+## 7. 초기 설정, 유지, 보수  
 &nbsp;chown, chmod
 - 필수 설정
 
